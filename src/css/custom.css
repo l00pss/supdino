@@ -230,9 +230,23 @@
 }
 
 /* Modern Search Styling */
+.navbar__items {
+  display: flex !important;
+  align-items: center !important;
+  flex: 1 !important;
+}
+
+.navbar__items--left {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2rem !important;
+  flex: 1 !important;
+}
+
 .navbar__search {
-  margin-right: 1rem;
-  order: -1; /* Position search before other right-aligned items */
+  flex: 1 !important;
+  max-width: 400px !important;
+  margin: 0 2rem !important;
 }
 
 /* Local Search Plugin Styling */
@@ -242,12 +256,14 @@
   border-radius: 8px !important;
   color: var(--ifm-color-emphasis-600) !important;
   font-size: 14px !important;
-  padding: 8px 16px !important;
+  padding: 10px 20px !important;
   transition: all 0.2s ease !important;
   backdrop-filter: blur(10px) !important;
-  min-width: 280px !important;
-  margin-right: 1rem !important;
+  width: 100% !important;
+  min-width: 300px !important;
+  margin: 0 !important;
 }
+
 
 .aa-DetachedSearchButton svg {
   color: var(--ifm-color-emphasis-500) !important;
@@ -397,25 +413,15 @@
 
 /* Responsive search */
 @media screen and (max-width: 768px) {
-  .DocSearch-Button {
-    min-width: auto;
-    width: 40px;
-    padding: 8px;
-  }
-
-  .DocSearch-Button-Placeholder,
-  .DocSearch-Button-Keys {
-    display: none;
-  }
-
-  .DocSearch-Button .DocSearch-Search-Icon {
-    margin: 0;
+  .navbar__items .navbar__item:has(.aa-DetachedSearchButton) {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    max-width: none !important;
   }
 
   .aa-DetachedSearchButton {
-    min-width: auto !important;
-    width: 40px !important;
-    padding: 8px !important;
+    min-width: 200px !important;
+    padding: 8px 12px !important;
   }
 
   .aa-DetachedSearchButtonPlaceholder {
@@ -428,8 +434,13 @@
 }
 
 @media screen and (max-width: 996px) {
+  .navbar__items .navbar__item:has(.aa-DetachedSearchButton) {
+    margin-left: 1.5rem !important;
+    max-width: 300px !important;
+  }
+
   .aa-DetachedSearchButton {
-    min-width: 200px !important;
+    min-width: 250px !important;
   }
 }
 

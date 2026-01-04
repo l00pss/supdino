@@ -14,6 +14,13 @@ function HomepageHeader() {
       <div className="container">
         <div className={styles.heroContent}>
           <div className={styles.heroText}>
+            <div className={styles.logoContainer}>
+              <img
+                src="/img/logo.svg"
+                alt="The8ArmsHub Logo"
+                className={styles.heroLogo}
+              />
+            </div>
             <Heading as="h1" className={styles.heroTitle}>
               {siteConfig.title}
             </Heading>
@@ -37,18 +44,54 @@ function HomepageHeader() {
           <div className={styles.heroVisual}>
             <div className={styles.codeBlock}>
               <div className={styles.codeHeader}>
+                <div className={styles.terminalButtons}>
+                  <span className={styles.terminalButton}></span>
+                  <span className={styles.terminalButton}></span>
+                  <span className={styles.terminalButton}></span>
+                </div>
+                <span className={styles.fileName}>dijkstra.go</span>
                 <span className={styles.codeLang}>go</span>
               </div>
               <pre className={styles.codeContent}>
-{`func QuickSort(arr []int) {
-  if len(arr) <= 1 {
-    return
-  }
-  
-  pivot := partition(arr)
-  QuickSort(arr[:pivot])
-  QuickSort(arr[pivot+1:])
-}`}
+                <span className="token comment">// Dijkstra's Algorithm Implementation</span>{'\n'}
+                <span className="token keyword">type</span> <span className="token class-name">Edge</span> <span className="token keyword">struct</span> <span className="token punctuation">{'{'}</span>{'\n'}
+                {'    '}<span className="token property">to</span>     <span className="token builtin">int</span>{'\n'}
+                {'    '}<span className="token property">weight</span> <span className="token builtin">int</span>{'\n'}
+                <span className="token punctuation">{'}'}</span>{'\n'}
+                {'\n'}
+                <span className="token keyword">type</span> <span className="token class-name">Graph</span> <span className="token keyword">struct</span> <span className="token punctuation">{'{'}</span>{'\n'}
+                {'    '}<span className="token property">vertices</span> <span className="token builtin">int</span>{'\n'}
+                {'    '}<span className="token property">edges</span>    <span className="token punctuation">[][]</span><span className="token class-name">Edge</span>{'\n'}
+                <span className="token punctuation">{'}'}</span>{'\n'}
+                {'\n'}
+                <span className="token keyword">func</span> <span className="token punctuation">(</span><span className="token parameter">g</span> <span className="token operator">*</span><span className="token class-name">Graph</span><span className="token punctuation">)</span> <span className="token function">AddEdge</span><span className="token punctuation">(</span><span className="token parameter">from</span><span className="token punctuation">,</span> <span className="token parameter">to</span><span className="token punctuation">,</span> <span className="token parameter">weight</span> <span className="token builtin">int</span><span className="token punctuation">)</span> <span className="token punctuation">{'{'}</span>{'\n'}
+                {'    '}<span className="token parameter">g</span><span className="token punctuation">.</span><span className="token property">edges</span><span className="token punctuation">[</span><span className="token parameter">from</span><span className="token punctuation">]</span> <span className="token operator">=</span> <span className="token function">append</span><span className="token punctuation">(</span><span className="token parameter">g</span><span className="token punctuation">.</span><span className="token property">edges</span><span className="token punctuation">[</span><span className="token parameter">from</span><span className="token punctuation">],</span> {'\n'}
+                {'        '}<span className="token class-name">Edge</span><span className="token punctuation">{'{'}</span><span className="token property">to</span><span className="token punctuation">:</span> <span className="token parameter">to</span><span className="token punctuation">,</span> <span className="token property">weight</span><span className="token punctuation">:</span> <span className="token parameter">weight</span><span className="token punctuation">{'}})'}</span>{'\n'}
+                <span className="token punctuation">{'}'}</span>{'\n'}
+                {'\n'}
+                <span className="token keyword">func</span> <span className="token punctuation">(</span><span className="token parameter">g</span> <span className="token operator">*</span><span className="token class-name">Graph</span><span className="token punctuation">)</span> <span className="token function">Dijkstra</span><span className="token punctuation">(</span><span className="token parameter">start</span> <span className="token builtin">int</span><span className="token punctuation">)</span> <span className="token punctuation">[]</span><span className="token builtin">int</span> <span className="token punctuation">{'{'}</span>{'\n'}
+                {'    '}<span className="token parameter">dist</span> <span className="token operator">:=</span> <span className="token function">make</span><span className="token punctuation">([]</span><span className="token builtin">int</span><span className="token punctuation">,</span> <span className="token parameter">g</span><span className="token punctuation">.</span><span className="token property">vertices</span><span className="token punctuation">)</span>{'\n'}
+                {'    '}<span className="token parameter">visited</span> <span className="token operator">:=</span> <span className="token function">make</span><span className="token punctuation">([]</span><span className="token builtin">bool</span><span className="token punctuation">,</span> <span className="token parameter">g</span><span className="token punctuation">.</span><span className="token property">vertices</span><span className="token punctuation">)</span>{'\n'}
+                {'    '}{'\n'}
+                {'    '}<span className="token keyword">for</span> <span className="token parameter">i</span> <span className="token operator">:=</span> <span className="token keyword">range</span> <span className="token parameter">dist</span> <span className="token punctuation">{'{'}</span>{'\n'}
+                {'        '}<span className="token parameter">dist</span><span className="token punctuation">[</span><span className="token parameter">i</span><span className="token punctuation">]</span> <span className="token operator">=</span> <span className="token property">math</span><span className="token punctuation">.</span><span className="token property">MaxInt32</span>{'\n'}
+                {'    '}<span className="token punctuation">{'}'}</span>{'\n'}
+                {'    '}<span className="token parameter">dist</span><span className="token punctuation">[</span><span className="token parameter">start</span><span className="token punctuation">]</span> <span className="token operator">=</span> <span className="token number">0</span>{'\n'}
+                {'    '}{'\n'}
+                {'    '}<span className="token keyword">for</span> <span className="token parameter">i</span> <span className="token operator">:=</span> <span className="token number">0</span><span className="token punctuation">;</span> <span className="token parameter">i</span> <span className="token operator">{'<'}</span> <span className="token parameter">g</span><span className="token punctuation">.</span><span className="token property">vertices</span><span className="token operator">-</span><span className="token number">1</span><span className="token punctuation">;</span> <span className="token parameter">i</span><span className="token operator">++</span> <span className="token punctuation">{'{'}</span>{'\n'}
+                {'        '}<span className="token parameter">u</span> <span className="token operator">:=</span> <span className="token function">minDistance</span><span className="token punctuation">(</span><span className="token parameter">dist</span><span className="token punctuation">,</span> <span className="token parameter">visited</span><span className="token punctuation">)</span>{'\n'}
+                {'        '}<span className="token parameter">visited</span><span className="token punctuation">[</span><span className="token parameter">u</span><span className="token punctuation">]</span> <span className="token operator">=</span> <span className="token boolean">true</span>{'\n'}
+                {'        '}{'\n'}
+                {'        '}<span className="token keyword">for</span> <span className="token parameter">_</span><span className="token punctuation">,</span> <span className="token parameter">edge</span> <span className="token operator">:=</span> <span className="token keyword">range</span> <span className="token parameter">g</span><span className="token punctuation">.</span><span className="token property">edges</span><span className="token punctuation">[</span><span className="token parameter">u</span><span className="token punctuation">]</span> <span className="token punctuation">{'{'}</span>{'\n'}
+                {'            '}<span className="token parameter">v</span> <span className="token operator">:=</span> <span className="token parameter">edge</span><span className="token punctuation">.</span><span className="token property">to</span>{'\n'}
+                {'            '}<span className="token keyword">if</span> <span className="token operator">!</span><span className="token parameter">visited</span><span className="token punctuation">[</span><span className="token parameter">v</span><span className="token punctuation">]</span> <span className="token operator">&&</span> <span className="token parameter">dist</span><span className="token punctuation">[</span><span className="token parameter">u</span><span className="token punctuation">]</span> <span className="token operator">!=</span> <span className="token property">math</span><span className="token punctuation">.</span><span className="token property">MaxInt32</span> <span className="token operator">&&</span>{'\n'}
+                {'               '}<span className="token parameter">dist</span><span className="token punctuation">[</span><span className="token parameter">u</span><span className="token punctuation">]</span><span className="token operator">+</span><span className="token parameter">edge</span><span className="token punctuation">.</span><span className="token property">weight</span> <span className="token operator">{'<'}</span> <span className="token parameter">dist</span><span className="token punctuation">[</span><span className="token parameter">v</span><span className="token punctuation">]</span> <span className="token punctuation">{'{'}</span>{'\n'}
+                {'                '}<span className="token parameter">dist</span><span className="token punctuation">[</span><span className="token parameter">v</span><span className="token punctuation">]</span> <span className="token operator">=</span> <span className="token parameter">dist</span><span className="token punctuation">[</span><span className="token parameter">u</span><span className="token punctuation">]</span> <span className="token operator">+</span> <span className="token parameter">edge</span><span className="token punctuation">.</span><span className="token property">weight</span>{'\n'}
+                {'            '}<span className="token punctuation">{'}'}</span>{'\n'}
+                {'        '}<span className="token punctuation">{'}'}</span>{'\n'}
+                {'    '}<span className="token punctuation">{'}'}</span>{'\n'}
+                {'    '}<span className="token keyword">return</span> <span className="token parameter">dist</span>{'\n'}
+                <span className="token punctuation">{'}'}</span>
               </pre>
             </div>
           </div>

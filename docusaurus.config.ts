@@ -114,6 +114,10 @@ const config: Config = {
           label: 'Docs',
         },
         {
+          type: 'search',
+          position: 'left',
+        },
+        {
           href: 'https://github.com/l00pss/the8armshub',
           label: 'GitHub',
           position: 'right',
