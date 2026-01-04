@@ -223,13 +223,13 @@
 .logoContainer {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 0.8rem;
-  margin-left: -60px;
+  margin-bottom: 0.3rem;
+  margin-left: -30px;
 }
 
 .heroLogo {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
   filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
   animation: logoFloat 3s ease-in-out infinite;
 }
