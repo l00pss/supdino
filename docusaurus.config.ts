@@ -14,8 +14,8 @@ const config: Config = {
   url: 'https://the8armshub.com',
   baseUrl: '/',
 
-  organizationName: 'the8armshub',
-  projectName: 'the8armshub',
+  organizationName: 'supdino',
+  projectName: 'supdino',
 
   onBrokenLinks: 'throw',
 
@@ -63,7 +63,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/the8armshub-social-card.jpg',
+    image: 'img/supdino-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
       defaultMode: 'light',

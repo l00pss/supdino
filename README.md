@@ -47,7 +47,7 @@ Ready to dive in? Here's how to get The8ArmsHub running on your machine:
 1. **Grab the code:**
    ```bash
    git clone https://github.com/l00pss/the8armshub.git
-   cd the8armshub
+   cd supdino
    ```
 
 2. **Install dependencies:**

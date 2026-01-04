@@ -1,7 +1,7 @@
 ---
-slug: welcome-to-the8armshub
+slug: welcome-to-supdino
 title: Welcome to The8ArmsHub - Master Algorithms, Mathematics, and Distributed Systems
-authors: [the8armshub]
+authors: [supdino]
 tags: [welcome, algorithms, mathematics, distributed-systems, go, learning]
 ---
 
