@@ -1,6 +1,4 @@
-import BuyMeCoffeeWidget from '@site/src/components/BuyMeCoffee';
-
+// Disabled - using only footer widget now
 export default function ClientModule(): null {
-  BuyMeCoffeeWidget();
   return null;
 }
