@@ -456,22 +456,34 @@
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
 }
 
-/* Buy Me a Coffee Widget Styling for Docs Pages */
-.bmc-button {
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
-  transition: all 0.3s ease !important;
+/* Buy Me a Coffee Widget Styling for Fixed Positioning */
+.buy-me-coffee-fixed {
+  position: fixed !important;
+  top: 120px !important;
+  right: 20px !important;
+  z-index: 1000 !important;
+  display: block !important;
 }
 
-.bmc-button:hover {
-  transform: translateY(-1px) !important;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2) !important;
+/* Hide on mobile and small tablets */
+@media screen and (max-width: 996px) {
+  .buy-me-coffee-fixed {
+    display: none !important;
+  }
+}
+
+/* Ensure widget is visible on docs pages */
+.theme-doc-sidebar-container ~ * .buy-me-coffee-fixed,
+.docs-wrapper .buy-me-coffee-fixed {
+  display: block !important;
 }
 
 /* Enhanced styling for docs pages */
 .bmc-btn-container {
   z-index: 1000 !important;
 }
+
+/* ...existing code... */
 
 /* Specific positioning for docs layout */
 @media (min-width: 997px) {

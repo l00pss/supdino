@@ -1,0 +1,14 @@
+{
+  "label": "Sorting Algorithms",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "className": "red",
+  "link": {
+    "type": "generated-index",
+    "title": "Sorting Algorithms",
+    "description": "Comprehensive guide to sorting algorithms with Go implementations and complexity analysis.",
+    "slug": "/algorithms/sorting"
+  }
+}
+

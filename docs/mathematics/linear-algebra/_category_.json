@@ -1,0 +1,14 @@
+{
+  "label": "Linear Algebra",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "className": "blue",
+  "link": {
+    "type": "generated-index",
+    "title": "Linear Algebra",
+    "description": "Mathematical foundations of linear algebra for computer science applications.",
+    "slug": "/mathematics/linear-algebra"
+  }
+}
+

@@ -25,7 +25,11 @@ const sidebars: SidebarsConfig = {
           label: 'Sorting Algorithms',
           items: [
             'algorithms/sorting/bubble-sort',
-            // More sorting algorithms will be added here
+            'algorithms/sorting/selection-sort',
+            'algorithms/sorting/insertion-sort',
+            'algorithms/sorting/merge-sort',
+            'algorithms/sorting/quick-sort',
+            'algorithms/sorting/heap-sort',
           ],
         },
         // More categories will be added as content is created
