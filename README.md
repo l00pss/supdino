@@ -1,41 +1,173 @@
-# Website
+# The8ArmsHub: Your Gateway to Computer Science Mastery 🚀
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Welcome to The8ArmsHub! This is more than just documentation—it's your personal guide through the fascinating worlds of **algorithms**, **mathematics**, and **distributed systems**. 
 
-## Installation
+Think of it as a digital mentor, carefully crafted to make complex computational ideas clear, accessible, and genuinely exciting. Whether you're cramming for that algorithms exam, preparing for technical interviews, or just satisfying your curiosity about how computers solve problems, you've found the right place.
 
-```bash
-yarn
+**Why "The8ArmsHub"?** Like an octopus reaching in all directions, we explore every angle of computer science fundamentals—from the elegance of mathematical proofs to the practical challenges of building systems that scale to millions of users.
+
+This project is lovingly built with [Docusaurus](https://docusaurus.io/), which gives us all the modern features you'd expect: lightning-fast search, beautiful dark mode, mobile-friendly design, and a delightful reading experience.
+
+## What Makes This Place Special? ✨
+
+### 🧠 **Deep Dives into Algorithms**
+We don't just show you code—we help you *understand* it. From bubble sort (everyone's got to start somewhere!) to advanced graph algorithms that power search engines, every topic includes:
+- Crystal-clear explanations that make sense on first reading
+- Step-by-step walkthroughs with visual examples
+- Complete implementations in Go with extensive comments
+- Real-world applications so you know when to use what
+
+### 📐 **Mathematics That Actually Makes Sense**
+Math doesn't have to be intimidating! We cover:
+- **Linear Algebra**: The foundation of computer graphics, machine learning, and data science
+- **Calculus**: How change works, from optimization to neural networks
+- **Discrete Mathematics**: Logic, graphs, and the mathematical structures that computers love
+- **Statistics & Probability**: Making sense of data in an uncertain world
+
+### 🌐 **Distributed Systems Demystified**
+Learn how to build systems that don't break when millions of people use them:
+- Consensus algorithms that help computers agree on the truth
+- Data consistency patterns for when "eventually" is good enough
+- System design principles from companies that know scale
+- Real implementation examples in Go
+
+### 💻 **Everything in Go**
+Why Go? Because it's fast, readable, and perfect for both learning algorithms and building distributed systems. Every concept comes with clean, well-commented Go code that you can run, modify, and learn from.
+
+## Getting Started (It's Really Easy!) 🏃‍♂️
+
+Ready to dive in? Here's how to get The8ArmsHub running on your machine:
+
+### What You'll Need
+- **Node.js** (version 18 or newer) - [Download here](https://nodejs.org/)
+- **Git** - [Get it here](https://git-scm.com/)
+- A terminal/command prompt
+- Your favorite code editor
+
+### Setup Steps
+
+1. **Grab the code:**
+   ```bash
+   git clone https://github.com/l00pss/the8armshub.git
+   cd the8armshub
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the magic:**
+   ```bash
+   npm start
+   ```
+
+4. **Open your browser** to `http://localhost:3000` and enjoy! 🎉
+
+The site will automatically reload as you make changes—perfect for contributing or just exploring the codebase.
+
+## How This Knowledge Base is Organized 📚
+
+```
+the8armshub/
+├── docs/
+│   ├── algorithms/              # Algorithm deep dives
+│   │   ├── intro.md            # Start here if you're new
+│   │   └── sorting/            # Sorting algorithms with Go examples
+│   ├── mathematics/            # Math made accessible
+│   │   ├── intro.md           # Mathematical foundations
+│   │   └── linear-algebra/    # Vectors, matrices, and more
+│   ├── distributed-systems/   # Building systems that scale
+│   │   └── intro.md          # Your distributed systems journey
+│   └── ...                   # More topics as we grow
+├── blog/                     # Tutorials, insights, and updates
+├── src/                      # Site components and styling
+└── static/                   # Images, assets, and files
 ```
 
-## Local Development
+## Your Learning Journey 🎓
+
+### 🚀 **New to Computer Science?**
+Start with our [Algorithms Introduction](docs/algorithms/intro.md). We'll guide you from the very basics to advanced concepts, with plenty of examples along the way.
+
+### 📊 **Want to Understand the Math?**
+Jump into [Mathematics](docs/mathematics/intro.md) where we make linear algebra, calculus, and statistics approachable and practical.
+
+### 🏗️ **Ready to Build Systems?**
+Explore [Distributed Systems](docs/distributed-systems/intro.md) and learn how to create applications that handle real-world scale and complexity.
+
+### 📝 **Looking for Practical Insights?**
+Check out our [Blog](blog/) for tutorials, case studies, and deep dives into specific topics.
+
+## Want to Contribute? We'd Love Your Help! 🤝
+
+The8ArmsHub is a community effort, and every contribution makes it better for everyone. Here's how you can help:
+
+### 🐛 **Found Something Wrong?**
+- Typo in an explanation? 
+- Code example not working? 
+- Concept that could be clearer?
+
+Just [open an issue](https://github.com/the8armshub/the8armshub/issues) and we'll fix it together!
+
+### ✍️ **Want to Add Content?**
+1. Fork the repository
+2. Create a new branch for your changes
+3. Add your content (we have templates to help!)
+4. Submit a pull request
+
+We welcome:
+- New algorithm explanations
+- Mathematical concept breakdowns
+- System design case studies
+- Go code improvements
+- Better examples and analogies
+- Corrections and clarifications
+
+### 📖 **Content Guidelines**
+- **Start simple, build complexity**: Assume your reader is smart but new to the topic
+- **Show, don't just tell**: Use examples, diagrams, and code
+- **Make it practical**: Explain when and why to use concepts
+- **Keep it friendly**: Write like you're helping a friend understand
+
+## Available Commands 🔧
 
 ```bash
-yarn start
+npm start          # Start development server (with hot reload)
+npm run build      # Create production build
+npm run serve      # Test production build locally
+npm run clear      # Clear Docusaurus cache
+npm run typecheck  # Check TypeScript types
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## The Story Behind The8ArmsHub 💡
 
-## Build
+This project started from a simple frustration: why is computer science education so often dry, abstract, and disconnected from real applications? 
 
-```bash
-yarn build
-```
+We believe learning should be:
+- **Engaging** - You should actually enjoy the process
+- **Practical** - Everything should connect to real-world applications  
+- **Complete** - Theory and practice, together
+- **Accessible** - Complex ideas, simple explanations
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+That's what we're building here. Not just another documentation site, but a place where curiosity is rewarded and understanding is the goal.
 
-## Deployment
+## Connect & Support 🌟
 
-Using SSH:
+**Built with ❤️ by Mammadli Vugar**
 
-```bash
-USE_SSH=true yarn deploy
-```
+- 🐙 GitHub: [@l00pss](https://github.com/l00pss)
+- 📧 Email: mammadli.vugar@hotmail.com
+- 🐦 Let's connect and share ideas!
 
-Not using SSH:
+If The8ArmsHub has helped you learn something new or land that job, consider [buying me a coffee](https://www.buymeacoffee.com/l00pss) ☕ It keeps the servers running and motivates me to create even better content!
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+## License 📄
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+This project is MIT licensed - feel free to use it, modify it, and share it. Knowledge should be free and accessible to everyone.
+
+---
+
+**Ready to start your journey?** Pick a topic that interests you and dive in. Remember: every expert was once a beginner, and every complex system started with simple building blocks.
+
+Happy learning! 🚀
