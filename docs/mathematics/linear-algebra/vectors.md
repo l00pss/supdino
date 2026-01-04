@@ -1,96 +1,126 @@
-# Vectors
+# Vector Mathematics and Linear Algebra Foundations
 
-Vectors are fundamental objects in linear algebra and have widespread applications in computer science, physics, engineering, and data science. Understanding vectors is crucial for topics like machine learning, computer graphics, and scientific computing.
+Vectors constitute the fundamental building blocks of linear algebra and serve as essential mathematical objects in computer science applications including machine learning, computer graphics, scientific computing, and data analysis. This comprehensive study examines vector theory, operations, and computational implementation.
 
-## What is a Vector?
+## Mathematical Definition and Conceptual Framework
 
-A vector is a mathematical object that has both **magnitude** (length) and **direction**. Vectors can be thought of in several ways:
+A vector is a mathematical entity characterized by both magnitude and direction, distinguished from scalar quantities that possess magnitude alone. Vectors can be conceptualized through multiple complementary perspectives:
 
-- **Geometric**: An arrow in space pointing from one point to another
-- **Algebraic**: An ordered list of numbers (components)
-- **Abstract**: An element of a vector space
+**Geometric Interpretation**: A vector represents a directed line segment in space, characterized by its length and the direction it points. This geometric view provides intuitive understanding for applications in physics and computer graphics.
 
-## Vector Notation
+**Algebraic Representation**: A vector consists of an ordered sequence of numerical components, typically written as v = (v₁, v₂, ..., vₙ) where each vᵢ represents the component along the i-th coordinate axis.
 
-Vectors are typically written in several ways:
+**Abstract Mathematical Object**: In formal linear algebra, a vector is an element of a vector space, satisfying specific axioms for addition and scalar multiplication operations.
 
-- **Bold lowercase letters**: **v**, **u**, **a**
-- **Arrows**: v⃗, u⃗, a⃗
-- **Component form**: ⟨a₁, a₂, a₃⟩ or column vectors
+## Vector Notation and Conventions
 
-## Types of Vectors
+Mathematical notation for vectors follows established conventions that facilitate clear communication of vector concepts:
 
-### By Dimension
+**Typographical Conventions**: Vectors are typically denoted using bold lowercase letters (v, u, w) or with arrow notation (v⃗, u⃗, w⃗) to distinguish them from scalar quantities.
 
-- **2D vectors**: v⃗ = ⟨x, y⟩ - points in a plane
-- **3D vectors**: v⃗ = ⟨x, y, z⟩ - points in space  
-- **n-dimensional vectors**: v⃗ = ⟨v₁, v₂, ..., vₙ⟩ - abstract mathematical objects
+**Component Notation**: Vector components are expressed using subscripts, such as v = (v₁, v₂, v₃) for a three-dimensional vector, or using angle bracket notation ⟨v₁, v₂, v₃⟩.
 
-### Special Vectors
+**Column Vector Format**: In matrix contexts, vectors are often written as column matrices to facilitate linear algebraic operations.
 
-- **Zero vector**: 0⃗ = ⟨0, 0, ..., 0⟩
-- **Unit vector**: Any vector with magnitude 1
-- **Standard basis vectors**: 
-  - 2D: î = ⟨1, 0⟩, ĵ = ⟨0, 1⟩
-  - 3D: î = ⟨1, 0, 0⟩, ĵ = ⟨0, 1, 0⟩, k̂ = ⟨0, 0, 1⟩
+## Vector Classification and Special Cases
 
-## Vector Operations
+Vectors can be classified according to various mathematical and geometric properties:
 
-### Addition and Subtraction
+### Dimensional Classification
 
-Vector addition is performed component-wise:
+**Two-Dimensional Vectors**: Vectors v = (x, y) that exist in planar coordinate systems, fundamental to 2D computer graphics and planar geometric problems.
 
-**u⃗ + v⃗ = ⟨u₁ + v₁, u₂ + v₂, u₃ + v₃⟩**
+**Three-Dimensional Vectors**: Vectors v = (x, y, z) that exist in spatial coordinate systems, essential for 3D graphics, physics simulations, and spatial analysis.
 
-**Properties:**
-- Commutative: u⃗ + v⃗ = v⃗ + u⃗
-- Associative: (u⃗ + v⃗) + w⃗ = u⃗ + (v⃗ + w⃗)
-- Identity: v⃗ + 0⃗ = v⃗
+**n-Dimensional Vectors**: Abstract vectors v = (v₁, v₂, ..., vₙ) that exist in high-dimensional spaces, crucial for machine learning and data science applications.
+
+### Special Vector Types
+
+**Zero Vector**: The unique vector 0 = (0, 0, ..., 0) that serves as the additive identity in vector spaces and represents the absence of magnitude and direction.
+
+**Unit Vectors**: Vectors with magnitude equal to one, often used to represent pure direction without magnitude considerations. Unit vectors are typically denoted with hat notation (û, v̂, ŵ).
+
+**Standard Basis Vectors**: The canonical unit vectors that define coordinate axes:
+- Two dimensions: î = (1, 0), ĵ = (0, 1)  
+- Three dimensions: î = (1, 0, 0), ĵ = (0, 1, 0), k̂ = (0, 0, 1)
+
+## Fundamental Vector Operations
+
+Vector algebra defines several essential operations that preserve the mathematical structure of vector spaces while enabling practical computation.
+
+### Vector Addition and Subtraction
+
+Vector addition combines two vectors component-wise to produce a resultant vector:
+
+**u + v = (u₁ + v₁, u₂ + v₂, u₃ + v₃)**
+
+This operation satisfies fundamental algebraic properties:
+- **Commutativity**: u + v = v + u
+- **Associativity**: (u + v) + w = u + (v + w)  
+- **Identity**: v + 0 = v for all vectors v
+- **Inverse**: For every vector v, there exists -v such that v + (-v) = 0
+
+**Geometric Interpretation**: Vector addition corresponds to placing vectors head-to-tail and drawing the resultant from the origin to the final position.
 
 ### Scalar Multiplication
 
-Multiplying a vector by a scalar scales its magnitude:
+Scalar multiplication scales a vector by a real number while preserving or reversing its direction:
 
-**cv⃗ = ⟨cv₁, cv₂, cv₃⟩**
+**cv = (cv₁, cv₂, cv₃)**
 
-**Effects:**
-- If c > 1: vector becomes longer
-- If 0 < c < 1: vector becomes shorter
-- If c < 0: vector reverses direction
-- If c = 0: results in zero vector
+The effects of scalar multiplication depend on the scalar value:
+- **c > 1**: Vector magnitude increases proportionally
+- **0 < c < 1**: Vector magnitude decreases proportionally  
+- **c < 0**: Vector direction reverses and magnitude scales by |c|
+- **c = 0**: Results in the zero vector
 
-### Magnitude (Length)
+### Vector Magnitude and Normalization
 
-The magnitude of a vector is calculated using the Euclidean norm:
+The magnitude (or norm) of a vector quantifies its length using the Euclidean distance formula:
 
-**|v⃗| = √(v₁² + v₂² + v₃²)**
+**||v|| = √(v₁² + v₂² + v₃²)**
 
-### Unit Vector
+**Normalization** converts any non-zero vector to a unit vector in the same direction:
 
-To find the unit vector in the direction of v⃗:
+**v̂ = v/||v||**
 
-**v̂ = v⃗/|v⃗|**
+This operation is crucial for isolating directional information from magnitude considerations.
 
-### Dot Product
+### Dot Product and Inner Product
 
-The dot product of two vectors is a scalar:
+The dot product (scalar product) combines two vectors to produce a scalar result:
 
-**u⃗ · v⃗ = u₁v₁ + u₂v₂ + u₃v₃ = |u⃗||v⃗|cos θ**
+**u · v = u₁v₁ + u₂v₂ + u₃v₃ = ||u||||v||cos θ**
 
-Where θ is the angle between the vectors.
+where θ represents the angle between the vectors.
 
-**Applications:**
-- Finding angles between vectors
-- Determining orthogonality (if dot product = 0)
-- Projection calculations
+**Mathematical Properties**:
+- **Commutativity**: u · v = v · u
+- **Distributivity**: u · (v + w) = u · v + u · w
+- **Scalar associativity**: (cu) · v = c(u · v)
 
-### Cross Product (3D only)
+**Applications**:
+- **Angle Calculation**: θ = arccos((u · v)/(||u||||v||))
+- **Orthogonality Testing**: Vectors are perpendicular if and only if u · v = 0
+- **Projection Computation**: Component of u along v direction
 
-The cross product produces a vector perpendicular to both input vectors:
+### Cross Product (Three-Dimensional)
 
-**u⃗ × v⃗ = ⟨u₂v₃ - u₃v₂, u₃v₁ - u₁v₃, u₁v₂ - u₂v₁⟩**
+The cross product operates exclusively on three-dimensional vectors, producing a vector perpendicular to both operands:
 
-## Go Implementation
+**u × v = (u₂v₃ - u₃v₂, u₃v₁ - u₁v₃, u₁v₂ - u₂v₁)**
+
+**Mathematical Properties**:
+- **Anti-commutativity**: u × v = -(v × u)
+- **Distributivity**: u × (v + w) = u × v + u × w
+- **Magnitude**: ||u × v|| = ||u||||v||sin θ
+
+**Applications**:
+- **Normal Vector Computation**: Finding vectors perpendicular to surfaces
+- **Torque Calculation**: Physical applications in mechanics
+- **Area Computation**: Parallelogram area equals ||u × v||
+
+## Computational Implementation in Go
 
 ```go
 package main
@@ -100,12 +130,12 @@ import (
     "math"
 )
 
-// Vector3D represents a 3D vector
+// Vector3D represents a three-dimensional vector with floating-point components
 type Vector3D struct {
     X, Y, Z float64
 }
 
-// Add returns the sum of two vectors
+// Add performs component-wise vector addition
 func (v Vector3D) Add(other Vector3D) Vector3D {
     return Vector3D{
         X: v.X + other.X,
@@ -114,7 +144,7 @@ func (v Vector3D) Add(other Vector3D) Vector3D {
     }
 }
 
-// Subtract returns the difference of two vectors
+// Subtract performs component-wise vector subtraction  
 func (v Vector3D) Subtract(other Vector3D) Vector3D {
     return Vector3D{
         X: v.X - other.X,
@@ -123,7 +153,7 @@ func (v Vector3D) Subtract(other Vector3D) Vector3D {
     }
 }
 
-// Scale multiplies the vector by a scalar
+// Scale performs scalar multiplication
 func (v Vector3D) Scale(scalar float64) Vector3D {
     return Vector3D{
         X: v.X * scalar,
@@ -132,26 +162,26 @@ func (v Vector3D) Scale(scalar float64) Vector3D {
     }
 }
 
-// Magnitude returns the length of the vector
+// Magnitude computes the Euclidean norm of the vector
 func (v Vector3D) Magnitude() float64 {
     return math.Sqrt(v.X*v.X + v.Y*v.Y + v.Z*v.Z)
 }
 
-// Unit returns the unit vector in the same direction
+// Unit returns the normalized unit vector in the same direction
 func (v Vector3D) Unit() Vector3D {
-    mag := v.Magnitude()
-    if mag == 0 {
-        return Vector3D{0, 0, 0} // Zero vector
+    magnitude := v.Magnitude()
+    if magnitude == 0 {
+        return Vector3D{0, 0, 0} // Handle zero vector case
     }
-    return v.Scale(1.0 / mag)
+    return v.Scale(1.0 / magnitude)
 }
 
-// Dot returns the dot product with another vector
+// Dot computes the scalar dot product with another vector
 func (v Vector3D) Dot(other Vector3D) float64 {
     return v.X*other.X + v.Y*other.Y + v.Z*other.Z
 }
 
-// Cross returns the cross product with another vector
+// Cross computes the vector cross product with another vector
 func (v Vector3D) Cross(other Vector3D) Vector3D {
     return Vector3D{
         X: v.Y*other.Z - v.Z*other.Y,
@@ -160,44 +190,97 @@ func (v Vector3D) Cross(other Vector3D) Vector3D {
     }
 }
 
-// Angle returns the angle between two vectors in radians
+// Angle computes the angle between two vectors in radians
 func (v Vector3D) Angle(other Vector3D) float64 {
-    dot := v.Dot(other)
+    dotProduct := v.Dot(other)
     magnitudes := v.Magnitude() * other.Magnitude()
     if magnitudes == 0 {
-        return 0
+        return 0 // Handle zero vector case
     }
-    return math.Acos(dot / magnitudes)
+    // Clamp to avoid numerical errors in arccos
+    cosTheta := math.Max(-1, math.Min(1, dotProduct/magnitudes))
+    return math.Acos(cosTheta)
 }
 
-// String provides a nice string representation
+// ProjectionOnto computes the vector projection of v onto other
+func (v Vector3D) ProjectionOnto(other Vector3D) Vector3D {
+    if other.Magnitude() == 0 {
+        return Vector3D{0, 0, 0}
+    }
+    scalar := v.Dot(other) / other.Dot(other)
+    return other.Scale(scalar)
+}
+
+// String provides formatted string representation for output
 func (v Vector3D) String() string {
-    return fmt.Sprintf("<%g, %g, %g>", v.X, v.Y, v.Z)
+    return fmt.Sprintf("(%.3f, %.3f, %.3f)", v.X, v.Y, v.Z)
 }
 
+// Demonstration of vector operations and properties
 func main() {
-    // Create some vectors
-    v1 := Vector3D{3, 4, 0}
-    v2 := Vector3D{1, 2, 2}
+    // Initialize example vectors
+    u := Vector3D{3, 4, 0}
+    v := Vector3D{1, 2, 2}
     
-    fmt.Printf("v1 = %v\n", v1)
-    fmt.Printf("v2 = %v\n", v2)
+    fmt.Printf("Vector u = %v\n", u)
+    fmt.Printf("Vector v = %v\n", v)
+    fmt.Printf("Magnitude of u: %.3f\n", u.Magnitude())
+    fmt.Printf("Magnitude of v: %.3f\n", v.Magnitude())
     fmt.Println()
     
-    // Vector operations
-    fmt.Printf("v1 + v2 = %v\n", v1.Add(v2))
-    fmt.Printf("v1 - v2 = %v\n", v1.Subtract(v2))
-    fmt.Printf("2 * v1 = %v\n", v1.Scale(2))
+    // Demonstrate vector arithmetic operations
+    fmt.Println("Vector Arithmetic Operations:")
+    fmt.Printf("u + v = %v\n", u.Add(v))
+    fmt.Printf("u - v = %v\n", u.Subtract(v))
+    fmt.Printf("2u = %v\n", u.Scale(2))
+    fmt.Printf("Unit vector û = %v\n", u.Unit())
     fmt.Println()
     
-    // Magnitude and unit vector
-    fmt.Printf("|v1| = %g\n", v1.Magnitude())
-    fmt.Printf("unit(v1) = %v\n", v1.Unit())
-    fmt.Println()
+    // Demonstrate dot and cross products
+    fmt.Println("Vector Products:")
+    dotProduct := u.Dot(v)
+    crossProduct := u.Cross(v)
+    angle := u.Angle(v)
     
-    // Dot and cross products
-    fmt.Printf("v1 · v2 = %g\n", v1.Dot(v2))
-    fmt.Printf("v1 × v2 = %v\n", v1.Cross(v2))
+    fmt.Printf("u · v = %.3f\n", dotProduct)
+    fmt.Printf("u × v = %v\n", crossProduct)
+    fmt.Printf("Angle between u and v: %.3f radians (%.1f degrees)\n", 
+              angle, angle*180/math.Pi)
+    
+    // Verify cross product properties
+    fmt.Printf("Magnitude of cross product: %.3f\n", crossProduct.Magnitude())
+    fmt.Printf("Expected magnitude (||u|| ||v|| sin θ): %.3f\n", 
+              u.Magnitude()*v.Magnitude()*math.Sin(angle))
+    
+    // Demonstrate vector projection
+    projection := u.ProjectionOnto(v)
+    fmt.Printf("Projection of u onto v: %v\n", projection)
+}
+```
+
+## Applications in Computer Science
+
+Vector mathematics finds extensive application across numerous domains within computer science:
+
+**Computer Graphics**: Vectors represent positions, directions, and transformations in 2D and 3D graphics systems. Operations like rotation, translation, and scaling rely heavily on vector mathematics.
+
+**Machine Learning**: Feature vectors represent data points in high-dimensional spaces, with vector operations forming the foundation of algorithms like support vector machines, neural networks, and clustering methods.
+
+**Computer Vision**: Image processing and computer vision algorithms use vectors to represent pixel intensities, gradients, and feature descriptors.
+
+**Game Development**: Physics engines use vectors for position tracking, velocity calculations, force applications, and collision detection.
+
+**Scientific Computing**: Numerical simulations in physics, engineering, and computational science rely on vector calculations for modeling complex systems.
+
+## Advanced Vector Concepts
+
+**Linear Independence**: A set of vectors is linearly independent if no vector can be expressed as a linear combination of the others. This concept is fundamental to understanding vector spaces and dimensionality.
+
+**Span and Basis**: The span of a set of vectors consists of all possible linear combinations of those vectors. A basis is a linearly independent spanning set that provides a coordinate system for the vector space.
+
+**Orthogonality and Orthonormality**: Orthogonal vectors are perpendicular (dot product equals zero), while orthonormal vectors are both orthogonal and normalized to unit length.
+
+Vector mathematics provides the foundational framework for linear algebra and serves as an essential tool for understanding more advanced mathematical concepts in computer science. Mastery of vector operations and their computational implementation enables effective work in graphics, machine learning, and scientific computing applications.
     
     // Angle between vectors
     angle := v1.Angle(v2)
