@@ -1,4 +1,4 @@
-# The8ArmsHub: Your Gateway to Computer Science Mastery 🚀
+# The8ArmsHub: Your Gateway to Computer Science Mastery 
 
 Welcome to The8ArmsHub! This is more than just documentation—it's your personal guide through the fascinating worlds of **algorithms**, **mathematics**, and **distributed systems**. 
 
@@ -8,30 +8,30 @@ Think of it as a digital mentor, carefully crafted to make complex computational
 
 This project is lovingly built with [Docusaurus](https://docusaurus.io/), which gives us all the modern features you'd expect: lightning-fast search, beautiful dark mode, mobile-friendly design, and a delightful reading experience.
 
-## What Makes This Place Special? ✨
+## What Makes This Place Special? 
 
-### 🧠 **Deep Dives into Algorithms**
+###  **Deep Dives into Algorithms**
 We don't just show you code—we help you *understand* it. From bubble sort (everyone's got to start somewhere!) to advanced graph algorithms that power search engines, every topic includes:
 - Crystal-clear explanations that make sense on first reading
 - Step-by-step walkthroughs with visual examples
 - Complete implementations in Go with extensive comments
 - Real-world applications so you know when to use what
 
-### 📐 **Mathematics That Actually Makes Sense**
+###  **Mathematics That Actually Makes Sense**
 Math doesn't have to be intimidating! We cover:
 - **Linear Algebra**: The foundation of computer graphics, machine learning, and data science
 - **Calculus**: How change works, from optimization to neural networks
 - **Discrete Mathematics**: Logic, graphs, and the mathematical structures that computers love
 - **Statistics & Probability**: Making sense of data in an uncertain world
 
-### 🌐 **Distributed Systems Demystified**
+###  **Distributed Systems Demystified**
 Learn how to build systems that don't break when millions of people use them:
 - Consensus algorithms that help computers agree on the truth
 - Data consistency patterns for when "eventually" is good enough
 - System design principles from companies that know scale
 - Real implementation examples in Go
 
-### 💻 **Everything in Go**
+###  **Everything in Go**
 Why Go? Because it's fast, readable, and perfect for both learning algorithms and building distributed systems. Every concept comes with clean, well-commented Go code that you can run, modify, and learn from.
 
 ## Getting Started (It's Really Easy!) 🏃‍♂️
@@ -85,32 +85,32 @@ the8armshub/
 └── static/                   # Images, assets, and files
 ```
 
-## Your Learning Journey 🎓
+## Your Learning Journey 
 
-### 🚀 **New to Computer Science?**
+###  **New to Computer Science?**
 Start with our [Algorithms Introduction](docs/algorithms/intro.md). We'll guide you from the very basics to advanced concepts, with plenty of examples along the way.
 
-### 📊 **Want to Understand the Math?**
+###  **Want to Understand the Math?**
 Jump into [Mathematics](docs/mathematics/intro.md) where we make linear algebra, calculus, and statistics approachable and practical.
 
-### 🏗️ **Ready to Build Systems?**
+###  **Ready to Build Systems?**
 Explore [Distributed Systems](docs/distributed-systems/intro.md) and learn how to create applications that handle real-world scale and complexity.
 
-### 📝 **Looking for Practical Insights?**
+###  **Looking for Practical Insights?**
 Check out our [Blog](blog/) for tutorials, case studies, and deep dives into specific topics.
 
-## Want to Contribute? We'd Love Your Help! 🤝
+## Want to Contribute? We'd Love Your Help! 
 
 The8ArmsHub is a community effort, and every contribution makes it better for everyone. Here's how you can help:
 
-### 🐛 **Found Something Wrong?**
+###  **Found Something Wrong?**
 - Typo in an explanation? 
 - Code example not working? 
 - Concept that could be clearer?
 
 Just [open an issue](https://github.com/the8armshub/the8armshub/issues) and we'll fix it together!
 
-### ✍️ **Want to Add Content?**
+### ️ **Want to Add Content?**
 1. Fork the repository
 2. Create a new branch for your changes
 3. Add your content (we have templates to help!)
@@ -124,7 +124,7 @@ We welcome:
 - Better examples and analogies
 - Corrections and clarifications
 
-### 📖 **Content Guidelines**
+###  **Content Guidelines**
 - **Start simple, build complexity**: Assume your reader is smart but new to the topic
 - **Show, don't just tell**: Use examples, diagrams, and code
 - **Make it practical**: Explain when and why to use concepts
@@ -140,7 +140,7 @@ npm run clear      # Clear Docusaurus cache
 npm run typecheck  # Check TypeScript types
 ```
 
-## The Story Behind The8ArmsHub 💡
+## The Story Behind The8ArmsHub 
 
 This project started from a simple frustration: why is computer science education so often dry, abstract, and disconnected from real applications? 
 
@@ -152,7 +152,7 @@ We believe learning should be:
 
 That's what we're building here. Not just another documentation site, but a place where curiosity is rewarded and understanding is the goal.
 
-## Connect & Support 🌟
+## Connect & Support 
 
 **Built with ❤️ by Mammadli Vugar**
 
@@ -170,4 +170,4 @@ This project is MIT licensed - feel free to use it, modify it, and share it. Kno
 
 **Ready to start your journey?** Pick a topic that interests you and dive in. Remember: every expert was once a beginner, and every complex system started with simple building blocks.
 
-Happy learning! 🚀
+Happy learning! 

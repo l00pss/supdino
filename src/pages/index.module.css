@@ -1,50 +1,219 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Modern docs-style homepage design for The8ArmsHub
  */
 
 .heroBanner {
-  padding: 4rem 0;
-  text-align: center;
+  padding: 4rem 0 6rem 0;
+  background: linear-gradient(180deg, var(--ifm-color-primary-lightest) 0%, var(--ifm-background-color) 100%);
   position: relative;
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
-.buttons {
-  display: flex;
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
   align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
-  .buttons {
-    flex-direction: column;
-    gap: 0.8rem;
+.heroText {
+  max-width: 500px;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.heroVisual {
+  position: relative;
+}
+
+.codeBlock {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 12px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 400px;
+  margin-left: auto;
+}
+
+.codeHeader {
+  background: var(--ifm-color-emphasis-200);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.codeHeader::before {
+  content: '';
+  display: flex;
+  gap: 0.25rem;
+}
+
+.codeHeader::before {
+  content: '● ● ●';
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.75rem;
+}
+
+.codeLang {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-dark);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.codeContent {
+  padding: 1.5rem;
+  margin: 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Features Section */
+.features {
+  padding: 6rem 0;
+  background: var(--ifm-background-color);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  background: var(--ifm-color-emphasis-0);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  padding: 2rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.featureCard:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: inherit;
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.featureDescription {
+  color: var(--ifm-color-emphasis-700);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.featureArrow {
+  font-size: 1.25rem;
+  color: var(--ifm-color-primary);
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.featureCard:hover .featureArrow {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem 0 4rem 0;
   }
 
-  .buttons .button {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .codeBlock {
+    margin: 0 auto;
+  }
+
+  .features {
+    padding: 4rem 0;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroButtons {
+    flex-direction: column;
+  }
+
+  .heroButtons .button {
     width: 100%;
     max-width: 300px;
   }
 }
 
-.aboutSection {
-  padding: 4rem 0;
-  background-color: var(--ifm-color-emphasis-100);
+/* Dark Mode Adjustments */
+[data-theme='dark'] .codeBlock {
+  background: var(--ifm-background-surface-color);
+  border-color: var(--ifm-color-emphasis-300);
 }
 
-@media screen and (max-width: 996px) {
-  .aboutSection {
-    padding: 2rem 0;
-  }
+[data-theme='dark'] .featureCard {
+  background: var(--ifm-background-surface-color);
 }
+
