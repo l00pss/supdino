@@ -60,11 +60,11 @@ Ready to dive in? Here's how to get The8ArmsHub running on your machine:
    npm start
    ```
 
-4. **Open your browser** to `http://localhost:3000` and enjoy! 🎉
+4. **Open your browser** to `http://localhost:3000` and enjoy! 
 
 The site will automatically reload as you make changes—perfect for contributing or just exploring the codebase.
 
-## How This Knowledge Base is Organized 📚
+## How This Knowledge Base is Organized 
 
 ```
 the8armshub/
@@ -114,7 +114,7 @@ We welcome:
 - **Make it practical**: Explain when and why to use concepts
 - **Keep it friendly**: Write like you're helping a friend understand
 
-## Available Commands 🔧
+## Available Commands 
 
 ```bash
 npm start          # Start development server (with hot reload)
