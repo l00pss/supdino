@@ -1,0 +1,305 @@
+.fontSizeControl {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(227, 227, 227, 0.8);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  min-width: 140px;
+  transition: all 0.2s ease;
+}
+
+.fontSizeControl:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--ifm-border-color, #e3e3e3);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hideButton {
+  width: 16px;
+  height: 16px;
+  background: none;
+  border: none;
+  color: var(--ifm-color-content-secondary, #999);
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.hideButton:hover {
+  background: var(--ifm-color-danger-lightest, #fff5f5);
+  color: var(--ifm-color-danger, #d63384);
+}
+
+.toggleButton {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  background: var(--ifm-color-primary, #0066cc);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.toggleButton:hover {
+  background: var(--ifm-color-primary-dark, #0056b3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.toggleIcon {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+.title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ifm-color-content-secondary, #666);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.currentSize {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #ffffff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2px 6px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--ifm-button-background-color, #f5f5f5);
+  border: 1px solid var(--ifm-border-color, #e3e3e3);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--ifm-color-primary-lightest, #f0f7ff);
+  border-color: var(--ifm-color-primary-light, #66b3ff);
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  fill: var(--ifm-color-content, #333);
+}
+
+.button:hover:not(:disabled) .icon {
+  fill: var(--ifm-color-primary, #0066cc);
+}
+
+.sizeDisplay {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.sizeIndicator {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ifm-color-primary, #0066cc);
+  font-family: serif;
+}
+
+.resetButton {
+  width: 100%;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--ifm-border-color, #e3e3e3);
+  border-radius: 4px;
+  color: var(--ifm-color-content-secondary, #666);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetButton:hover {
+  background: var(--ifm-color-danger-lightest, #fff5f5);
+  border-color: var(--ifm-color-danger-light, #ffb3b3);
+  color: var(--ifm-color-danger, #d63384);
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .fontSizeControl {
+  background: rgba(36, 37, 38, 0.9);
+  border-color: rgba(68, 68, 68, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+[data-theme='dark'] .button {
+  background: var(--ifm-background-color, #181920);
+  border-color: var(--ifm-border-color, #444);
+}
+
+[data-theme='dark'] .button:hover:not(:disabled) {
+  background: var(--ifm-color-primary-darkest, #003d7a);
+  border-color: var(--ifm-color-primary-dark, #0056b3);
+}
+
+[data-theme='dark'] .icon {
+  fill: var(--ifm-color-content, #e3e3e3);
+}
+
+[data-theme='dark'] .resetButton {
+  color: var(--ifm-color-content-secondary, #b3b3b3);
+  border-color: var(--ifm-border-color, #444);
+}
+
+[data-theme='dark'] .resetButton:hover {
+  background: var(--ifm-color-danger-darkest, #4a1e2a);
+  border-color: var(--ifm-color-danger-dark, #b02a37);
+  color: var(--ifm-color-danger-light, #ff6b8a);
+}
+
+[data-theme='dark'] .hideButton:hover {
+  background: var(--ifm-color-danger-darkest, #4a1e2a);
+  color: var(--ifm-color-danger-light, #ff6b8a);
+}
+
+[data-theme='dark'] .toggleButton {
+  background: var(--ifm-color-primary-dark, #0056b3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='dark'] .toggleButton:hover {
+  background: var(--ifm-color-primary, #0066cc);
+}
+
+[data-theme='dark'] .currentSize {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 996px) {
+  .fontSizeControl {
+    top: 80px;
+    right: 15px;
+    min-width: 120px;
+    padding: 10px;
+  }
+
+  .toggleButton {
+    top: 80px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .toggleIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .button {
+    width: 28px;
+    height: 28px;
+  }
+
+  .icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sizeIndicator {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 0.7rem;
+  }
+
+  .currentSize {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .fontSizeControl {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 1rem auto;
+    max-width: 200px;
+  }
+
+  .toggleButton {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 1rem auto;
+    display: block;
+  }
+}
+
+/* Animation for font size changes */
+.fontSizeControl * {
+  transition: font-size 0.2s ease, line-height 0.2s ease;
+}
+
+/* Ensure the control stays above other elements */
+.fontSizeControl {
+  z-index: 9999;
+}
