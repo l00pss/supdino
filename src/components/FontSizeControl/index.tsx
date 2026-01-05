@@ -8,13 +8,30 @@ interface FontSizeControlProps {
 const FontSizeControl: React.FC<FontSizeControlProps> = ({ className }) => {
   const [fontSize, setFontSize] = useState(16); // Default font size in px
   const [isVisible, setIsVisible] = useState(true);
+  const [isReadingMode, setIsReadingMode] = useState(false);
+  const [readingTime, setReadingTime] = useState(0);
   const minSize = 12;
   const maxSize = 24;
+
+  // Calculate reading time
+  const calculateReadingTime = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      const content = document.querySelector('article, .markdown') || document.querySelector('main');
+      if (content) {
+        const text = content.textContent || '';
+        const wordsPerMinute = 200; // Average reading speed
+        const wordCount = text.trim().split(/\s+/).length;
+        const minutes = Math.ceil(wordCount / wordsPerMinute);
+        setReadingTime(minutes);
+      }
+    }
+  }, []);
 
   // Load saved font size from localStorage on component mount
   useEffect(() => {
     const savedFontSize = localStorage.getItem('article-font-size');
     const savedVisibility = localStorage.getItem('font-control-visibility');
+    const savedReadingMode = localStorage.getItem('reading-mode');
 
     if (savedFontSize) {
       const size = parseInt(savedFontSize, 10);
@@ -27,7 +44,15 @@ const FontSizeControl: React.FC<FontSizeControlProps> = ({ className }) => {
     if (savedVisibility !== null) {
       setIsVisible(savedVisibility === 'true');
     }
-  }, []);
+
+    if (savedReadingMode === 'true') {
+      setIsReadingMode(true);
+      document.body.classList.add('reading-mode-active');
+      document.documentElement.style.setProperty('--reading-mode', 'true');
+    }
+
+    calculateReadingTime();
+  }, [calculateReadingTime, minSize, maxSize]);
 
   const applyFontSize = useCallback((size: number) => {
     // Apply font size to the main article content
@@ -73,6 +98,25 @@ const FontSizeControl: React.FC<FontSizeControlProps> = ({ className }) => {
     const newVisibility = !isVisible;
     setIsVisible(newVisibility);
     localStorage.setItem('font-control-visibility', newVisibility.toString());
+  };
+
+  const toggleReadingMode = () => {
+    const newReadingMode = !isReadingMode;
+    setIsReadingMode(newReadingMode);
+
+    console.log('Reading Mode toggled:', newReadingMode);
+
+    if (newReadingMode) {
+      document.body.classList.add('reading-mode-active');
+      document.documentElement.style.setProperty('--reading-mode', 'true');
+      console.log('Added reading-mode-active class to body');
+    } else {
+      document.body.classList.remove('reading-mode-active');
+      document.documentElement.style.removeProperty('--reading-mode');
+      console.log('Removed reading-mode-active class from body');
+    }
+
+    localStorage.setItem('reading-mode', newReadingMode.toString());
   };
 
   if (!isVisible) {
@@ -140,6 +184,31 @@ const FontSizeControl: React.FC<FontSizeControlProps> = ({ className }) => {
             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
           </svg>
         </button>
+      </div>
+
+      <div className={styles.readingSection}>
+        {readingTime > 0 && (
+          <div className={styles.readingTime}>
+            <svg className={styles.readingTimeIcon} viewBox="0 0 24 24">
+              <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z" />
+            </svg>
+            {readingTime} min read
+          </div>
+        )}
+
+        <div className={styles.readingModeToggle}>
+          <span className={styles.readingModeLabel}>Reading Mode</span>
+          <div
+            className={`${styles.readingModeSwitch} ${isReadingMode ? styles.active : ''}`}
+            onClick={toggleReadingMode}
+            role="switch"
+            aria-checked={isReadingMode}
+            aria-label="Toggle reading mode"
+            tabIndex={0}
+          >
+            <div className={styles.readingModeSwitchHandle} />
+          </div>
+        </div>
       </div>
 
       {fontSize !== 16 && (

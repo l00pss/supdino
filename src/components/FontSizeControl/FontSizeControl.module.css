@@ -179,6 +179,76 @@
   color: var(--ifm-color-danger, #d63384);
 }
 
+/* Reading Mode and Reading Time Sections */
+.readingSection {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ifm-border-color, #e3e3e3);
+}
+
+.readingModeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.readingModeLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ifm-color-content-secondary, #666);
+}
+
+.readingModeSwitch {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  background: #ccc;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.readingModeSwitch.active {
+  background: var(--ifm-color-primary, #0066cc);
+}
+
+.readingModeSwitchHandle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.readingModeSwitch.active .readingModeSwitchHandle {
+  transform: translateX(14px);
+}
+
+.readingTime {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: #888;
+  text-align: center;
+  padding: 4px 8px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.readingTimeIcon {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  margin-right: 4px;
+}
+
 /* Dark mode adjustments */
 [data-theme='dark'] .fontSizeControl {
   background: rgba(36, 37, 38, 0.9);
@@ -232,6 +302,107 @@
   box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
 }
 
+/* Dark mode adjustments for new elements */
+[data-theme='dark'] .readingSection {
+  border-top-color: var(--ifm-border-color, #444);
+}
+
+[data-theme='dark'] .readingModeLabel {
+  color: var(--ifm-color-content-secondary, #b3b3b3);
+}
+
+[data-theme='dark'] .readingModeSwitch {
+  background: #555;
+}
+
+[data-theme='dark'] .readingModeSwitch.active {
+  background: var(--ifm-color-primary-dark, #0056b3);
+}
+
+[data-theme='dark'] .readingTime {
+  background: rgba(255, 107, 107, 0.15);
+  color: #ccc;
+}
+
+/* Reading Mode Active Styles - Global CSS */
+:global(body.reading-mode-active) {
+  background: var(--ifm-background-color) !important;
+}
+
+:global(body.reading-mode-active) .navbar,
+:global(body.reading-mode-active) .docSidebarContainer,
+:global(body.reading-mode-active) .tableOfContents,
+:global(body.reading-mode-active) .pagination-nav,
+:global(body.reading-mode-active) footer,
+:global(body.reading-mode-active) .theme-doc-sidebar-container,
+:global(body.reading-mode-active) .theme-doc-toc-desktop,
+:global(body.reading-mode-active) .theme-doc-toc-mobile,
+:global(body.reading-mode-active) .docSidebar,
+:global(body.reading-mode-active) .sidebar_njMd,
+:global(body.reading-mode-active) [class*="docSidebar"],
+:global(body.reading-mode-active) [class*="sidebar"],
+:global(body.reading-mode-active) aside,
+:global(body.reading-mode-active) .theme-doc-sidebar-menu,
+:global(body.reading-mode-active) .menu {
+  display: none !important;
+}
+
+:global(body.reading-mode-active) .main-wrapper {
+  padding: 0 !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  margin-left: 0 !important;
+  width: 100% !important;
+}
+
+:global(body.reading-mode-active) .container {
+  padding: 2rem !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+
+:global(body.reading-mode-active) .row {
+  margin: 0 !important;
+}
+
+:global(body.reading-mode-active) .col {
+  padding: 0 !important;
+  max-width: none !important;
+}
+
+/* Mobile sidebar and hamburger menu hiding in reading mode */
+:global(body.reading-mode-active) .navbar__toggle,
+:global(body.reading-mode-active) .navbar__sidebar,
+:global(body.reading-mode-active) [class*="toggle"],
+:global(body.reading-mode-active) .button--secondary {
+  display: none !important;
+}
+
+/* Ensure content takes full width on mobile in reading mode */
+@media (max-width: 996px) {
+  :global(body.reading-mode-active) .main-wrapper {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  :global(body.reading-mode-active) .container {
+    padding: 1rem !important;
+  }
+}
+
+:global(body.reading-mode-active) article {
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+/* Hide edit this page and next/prev navigation in reading mode */
+:global(body.reading-mode-active) .theme-edit-this-page,
+:global(body.reading-mode-active) .pagination-nav__item {
+  display: none !important;
+}
+
 /* Mobile responsiveness */
 @media (max-width: 996px) {
   .fontSizeControl {
@@ -273,6 +444,24 @@
 
   .currentSize {
     font-size: 0.75rem;
+  }
+
+  .readingTime {
+    font-size: 0.65rem;
+  }
+
+  .readingModeSwitch {
+    width: 28px;
+    height: 16px;
+  }
+
+  .readingModeSwitchHandle {
+    width: 12px;
+    height: 12px;
+  }
+
+  .readingModeSwitch.active .readingModeSwitchHandle {
+    transform: translateX(12px);
   }
 }
 
