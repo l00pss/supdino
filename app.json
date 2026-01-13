@@ -1,8 +1,8 @@
 {
   "name": "supdino",
   "description": "Supdino - Documentation Hub",
-  "repository": "https://github.com/yourusername/supdino",
-  "logo": "https://raw.githubusercontent.com/yourusername/supdino/main/static/img/logo.svg",
+  "repository": "https://github.com/l00pss/supdino",
+  "logo": "https://raw.githubusercontent.com/l00pss/supdino/main/static/img/logo.svg",
   "keywords": ["docusaurus", "documentation", "algorithms", "distributed-systems"],
   "buildpacks": [
     {

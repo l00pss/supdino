@@ -1,7 +1,7 @@
 supdino:
   name: SupDino Team
   title: Algorithms & Algebra Educators
-  url: https://supdino.com
+  url: http://www.supdino.com
   image_url: /img/logo.svg
   page: true
   socials:
@@ -10,5 +10,5 @@ supdino:
 contributor:
   name: Community Contributor
   title: SupDino Community
-  url: https://supdino.com/community
+  url: http://www.supdino.com/community
   image_url: /img/logo.svg
