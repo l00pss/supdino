@@ -1,0 +1,24 @@
+{
+  "name": "supdino",
+  "description": "Supdino - Documentation Hub",
+  "repository": "https://github.com/yourusername/supdino",
+  "logo": "https://raw.githubusercontent.com/yourusername/supdino/main/static/img/logo.svg",
+  "keywords": ["docusaurus", "documentation", "algorithms", "distributed-systems"],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku-community/static"
+    }
+  ],
+  "env": {
+    "NODE_ENV": {
+      "value": "production"
+    }
+  },
+  "scripts": {
+    "postdeploy": "npm run build"
+  }
+}
+

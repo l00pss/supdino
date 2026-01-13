@@ -14,7 +14,7 @@ The term "water mark" draws an analogy from hydrodynamics, where water marks ind
 
 ### 2.1 Definition and Core Concepts
 
-A Low Water Mark (LWM) is a monotonically increasing value that represents the minimum progress point across all participants in a distributed system. Formally, if we have a set of nodes N = \{n1, n2, ..., nk\} with progress values P = \{p1, p2, ..., pk\}, then:
+A Low Water Mark (LWM) is a monotonically increasing value that represents the minimum progress point across all participants in a distributed system. Formally, if we have a set of nodes N = {'{'}n1, n2, ..., nk{'}'} with progress values P = {'{'}p1, p2, ..., pk{'}'}, then:
 
 ```
 LWM = min(P) = min(p1, p2, ..., pk)
