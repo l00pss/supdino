@@ -64,8 +64,44 @@ const config: Config = {
     ],
   ],
 
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:type',
+        content: 'website',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:site_name',
+        content: 'SupDino',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:card',
+        content: 'summary_large_image',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'twitter:site',
+        content: '@supdino',
+      },
+    },
+  ],
+
   themeConfig: {
-    image: 'img/supdino-social-card.jpg',
+    image: 'img/social-card.png',
+    metadata: [
+      {name: 'keywords', content: 'algorithms, mathematics, distributed systems, data structures, programming, computer science'},
+      {name: 'author', content: 'SupDino'},
+      {property: 'og:locale', content: 'en_US'},
+    ],
     colorMode: {
       respectPrefersColorScheme: true,
       defaultMode: 'light',
