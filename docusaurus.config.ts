@@ -66,6 +66,23 @@ const config: Config = {
 
   headTags: [
     {
+      tagName: 'script',
+      attributes: {
+        async: 'true',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-JJ4Y0QN60V',
+      },
+    },
+    {
+      tagName: 'script',
+      attributes: {},
+      innerHTML: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JJ4Y0QN60V');
+      `,
+    },
+    {
       tagName: 'meta',
       attributes: {
         name: 'image',
