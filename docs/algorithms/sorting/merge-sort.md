@@ -1,3 +1,14 @@
+---
+title: Merge Sort Algorithm
+description: Merge Sort is a highly efficient, stable, divide-and-conquer sorting algorithm with consistent O(n log n) performance regardless of input distribution.
+sidebar_label: Merge Sort
+sidebar_position: 4
+keywords: [merge-sort, sorting, algorithms, divide-and-conquer]
+reading_time: 10
+last_update:
+  date: 2025-12-15
+---
+
 # Merge Sort Algorithm
 
 Merge Sort is a highly efficient, stable, divide-and-conquer sorting algorithm. It consistently delivers O(n log n) performance regardless of the input data distribution, making it one of the most reliable sorting algorithms for large datasets.

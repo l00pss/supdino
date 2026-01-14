@@ -1,3 +1,14 @@
+---
+title: Vector Mathematics
+description: Vectors are fundamental building blocks of linear algebra, essential for machine learning, computer graphics, and scientific computing applications.
+sidebar_label: Vectors
+sidebar_position: 1
+keywords: [vectors, linear-algebra, mathematics, machine-learning]
+reading_time: 22
+last_update:
+  date: 2025-11-20
+---
+
 # Vector Mathematics and Linear Algebra Foundations
 
 Vectors constitute the fundamental building blocks of linear algebra and serve as essential mathematical objects in computer science applications including machine learning, computer graphics, scientific computing, and data analysis. This comprehensive study examines vector theory, operations, and computational implementation.

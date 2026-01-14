@@ -1,6 +1,12 @@
 ---
+title: Slotted Page Architecture
+description: A comprehensive technical analysis of the slotted page architecture - the fundamental data structure for storing variable-length records in fixed-size database pages.
 sidebar_label: Slotted Page
 sidebar_position: 2
+keywords: [slotted-page, database, storage, page-layout]
+reading_time: 30
+last_update:
+  date: 2026-01-14
 draft: false
 format: md
 ---
@@ -10,22 +16,6 @@ format: md
 ## Abstract
 
 This document provides a comprehensive technical analysis of the slotted page architecture implemented in CitrineDB. The slotted page format is a fundamental data structure used in modern database systems to efficiently store variable-length records within fixed-size pages. We examine the page layout, header structure, slot directory mechanism, and the algorithms that govern record insertion, deletion, and compaction.
-
----
-
-## Table of Contents
-
-1. [Introduction](#1-introduction)
-2. [Page Overview](#2-page-overview)
-3. [Page Header Structure](#3-page-header-structure)
-4. [Slot Directory](#4-slot-directory)
-5. [Record Storage](#5-record-storage)
-6. [Space Management](#6-space-management)
-7. [Core Algorithms](#7-core-algorithms)
-8. [Indirection and Record Identification](#8-indirection-and-record-identification)
-9. [Fragmentation and Compaction](#9-fragmentation-and-compaction)
-10. [Implementation Details](#10-implementation-details)
-11. [Conclusion](#11-conclusion)
 
 ---
 

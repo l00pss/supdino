@@ -1,6 +1,11 @@
 ---
+title: Introduction to Storage Systems
+description: Storage systems form the foundational layer of databases and file systems, managing how data is organized, stored, and retrieved on persistent storage devices.
 sidebar_label: Introduction
 sidebar_position: 1
+keywords: [storage-systems, databases, page-structure, buffer-management]
+last_update:
+  date: 2026-01-13
 draft: false
 ---
 

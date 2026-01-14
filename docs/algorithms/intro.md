@@ -1,3 +1,13 @@
+---
+title: Introduction to Algorithms
+description: A comprehensive guide to fundamental concepts of computational problem-solving with practical Go implementations.
+sidebar_label: Introduction
+sidebar_position: 1
+keywords: [algorithms, data-structures, complexity, problem-solving]
+last_update:
+  date: 2025-11-01
+---
+
 # Introduction to Algorithms
 
 Welcome to the algorithms section of SupDino. This comprehensive guide explores the fundamental concepts of computational problem-solving and provides practical implementations in Go.

@@ -1,3 +1,14 @@
+---
+title: Quick Sort Algorithm
+description: Quick Sort is one of the most efficient sorting algorithms using divide-and-conquer strategy to achieve O(n log n) average-case performance.
+sidebar_label: Quick Sort
+sidebar_position: 5
+keywords: [quicksort, sorting, algorithms, divide-and-conquer]
+reading_time: 12
+last_update:
+  date: 2026-01-08
+---
+
 # Quick Sort Algorithm
 
 Quick Sort is one of the most efficient and widely used sorting algorithms. It employs a divide-and-conquer strategy to achieve excellent average-case performance of O(n log n), making it the algorithm of choice for many standard library implementations.

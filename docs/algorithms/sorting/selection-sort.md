@@ -1,3 +1,14 @@
+---
+title: Selection Sort Algorithm
+description: Selection Sort is a simple comparison-based algorithm that builds the sorted array by repeatedly finding the minimum element from the unsorted portion.
+sidebar_label: Selection Sort
+sidebar_position: 2
+keywords: [selection-sort, sorting, algorithms, comparison-sort]
+reading_time: 7
+last_update:
+  date: 2025-12-05
+---
+
 # Selection Sort Algorithm
 
 Selection Sort is a simple comparison-based sorting algorithm that builds the final sorted array one element at a time. It is characterized by its straightforward approach of repeatedly finding the minimum element from the unsorted portion and placing it at the beginning.

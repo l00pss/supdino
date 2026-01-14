@@ -1,3 +1,14 @@
+---
+title: Bubble Sort Algorithm
+description: Bubble Sort is one of the most fundamental sorting algorithms, comparing adjacent elements and swapping them if in wrong order. An excellent introduction to sorting concepts.
+sidebar_label: Bubble Sort
+sidebar_position: 1
+keywords: [bubble-sort, sorting, algorithms, comparison-sort]
+reading_time: 8
+last_update:
+  date: 2025-12-01
+---
+
 # Bubble Sort Algorithm
 
 Bubble Sort represents one of the most fundamental sorting algorithms in computer science. While not optimal for large datasets, it serves as an excellent introduction to sorting concepts and algorithmic analysis due to its intuitive nature and straightforward implementation.

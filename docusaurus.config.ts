@@ -32,7 +32,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/l00pss/supdino/tree/main/',
           showLastUpdateAuthor: false,
-          showLastUpdateTime: false,
+          showLastUpdateTime: true,
         },
         blog: {
           showReadingTime: true,

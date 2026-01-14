@@ -1,3 +1,14 @@
+---
+title: Insertion Sort Algorithm
+description: Insertion Sort is an efficient algorithm for small datasets, building the sorted array by inserting elements into their correct position one at a time.
+sidebar_label: Insertion Sort
+sidebar_position: 3
+keywords: [insertion-sort, sorting, algorithms, comparison-sort]
+reading_time: 8
+last_update:
+  date: 2025-12-10
+---
+
 # Insertion Sort Algorithm
 
 Insertion Sort is an efficient algorithm for sorting small datasets. It builds the final sorted array one element at a time by repeatedly taking elements from the unsorted portion and inserting them into their correct position within the sorted portion.

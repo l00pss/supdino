@@ -1,3 +1,14 @@
+---
+title: Segmented Log Architecture
+description: The Segmented Log architecture addresses scalability limitations in WAL systems by partitioning logs into bounded segments for better performance and maintenance.
+sidebar_label: Segmented Log
+sidebar_position: 2
+keywords: [segmented-log, wal, scalability, distributed-systems]
+reading_time: 18
+last_update:
+  date: 2026-01-12
+---
+
 # Segmented Log: A Scalable Architecture for Write-Ahead Logging Systems
 
 ## Abstract

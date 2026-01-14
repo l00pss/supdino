@@ -1,3 +1,13 @@
+---
+title: Introduction to Mathematics
+description: Mathematical foundations for computer science including linear algebra, calculus, and discrete math essential for algorithmic thinking.
+sidebar_label: Introduction
+sidebar_position: 1
+keywords: [mathematics, linear-algebra, calculus, discrete-math]
+last_update:
+  date: 2025-11-10
+---
+
 # Introduction to Mathematics for Computer Science
 
 Welcome to the mathematical foundations section of SupDino. This comprehensive study examines the mathematical concepts that underpin computer science, providing both theoretical understanding and practical computational skills essential for advanced algorithmic thinking and system design.

@@ -5,6 +5,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
 import BuyMeCoffeeButton from '@site/src/components/BuyMeCoffeeButton';
+import {useLatestDocs, formatReadingTime} from '@site/src/hooks/useLatestDocs';
 
 import styles from './index.module.css';
 
@@ -102,42 +103,59 @@ function HomepageHeader() {
   );
 }
 
-function FeaturesSection() {
-  const features = [
+function LatestArticlesSection() {
+  const latestDocs = useLatestDocs(3);
+
+  // Fallback articles in case dynamic loading fails
+  const fallbackArticles = [
     {
-      title: 'Algorithms & Data Structures',
-      icon: '🧠',
-      description: 'Master sorting, searching, graph algorithms, and dynamic programming with step-by-step explanations.',
-      link: '/docs/algorithms/intro'
+      title: 'Write-Ahead Logging (WAL)',
+      category: 'Distributed Systems',
+      description: 'Write-Ahead Logging (WAL) is a fundamental technique in database systems that ensures data durability and consistency by recording changes to a log before applying them to the actual data store.',
+      link: '/docs/distributed-systems/replication/wal',
+      readingTime: 25,
     },
     {
-      title: 'Mathematical Foundations',
-      icon: '📐',
-      description: 'Linear algebra, calculus, discrete math, and statistics for computer science applications.',
-      link: '/docs/mathematics/intro'
+      title: 'Segmented Log Architecture',
+      category: 'Distributed Systems',
+      description: 'The Segmented Log architecture addresses scalability limitations in WAL systems by partitioning logs into bounded segments for better performance and maintenance.',
+      link: '/docs/distributed-systems/replication/segmented-log',
+      readingTime: 18,
     },
     {
-      title: 'Distributed Systems',
-      icon: '🌐',
-      description: 'Build scalable, fault-tolerant systems with consensus algorithms and system design patterns.',
-      link: '/docs/distributed-systems/intro'
+      title: 'Quick Sort Algorithm',
+      category: 'Algorithms',
+      description: 'Quick Sort is one of the most efficient sorting algorithms using divide-and-conquer strategy to achieve O(n log n) average-case performance.',
+      link: '/docs/algorithms/sorting/quick-sort',
+      readingTime: 12,
     }
   ];
 
+  const articles = latestDocs.length > 0 ? latestDocs : fallbackArticles;
+
   return (
-    <section className={styles.features}>
+    <section className={styles.latestArticles}>
       <div className="container">
-        <div className={styles.featuresGrid}>
-          {features.map((feature, idx) => (
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Latest Articles</h2>
+          <p className={styles.sectionSubtitle}>
+            Explore our most recent in-depth technical articles
+          </p>
+        </div>
+        <div className={styles.articlesGrid}>
+          {articles.map((article, idx) => (
             <Link
               key={idx}
-              to={feature.link}
-              className={styles.featureCard}
+              to={article.link}
+              className={styles.articleCard}
             >
-              <div className={styles.featureIcon}>{feature.icon}</div>
-              <h3 className={styles.featureTitle}>{feature.title}</h3>
-              <p className={styles.featureDescription}>{feature.description}</p>
-              <span className={styles.featureArrow}>→</span>
+              <span className={styles.articleCategory}>{article.category}</span>
+              <h3 className={styles.articleTitle}>{article.title}</h3>
+              <p className={styles.articleExcerpt}>{article.description}</p>
+              <div className={styles.articleMeta}>
+                <span className={styles.readTime}>{formatReadingTime(article.readingTime)}</span>
+                <span className={styles.readMore}>Read more →</span>
+              </div>
             </Link>
           ))}
         </div>
@@ -154,7 +172,7 @@ export default function Home(): ReactNode {
       description="Master algorithms, mathematics, and distributed systems with comprehensive guides, Go implementations, and practical examples.">
       <HomepageHeader />
       <main>
-        <FeaturesSection />
+        <LatestArticlesSection />
         <section style={{ padding: '4rem 0', textAlign: 'center', backgroundColor: 'var(--ifm-background-color)' }}>
           <div className="container">
             <h2>Support SupDino</h2>

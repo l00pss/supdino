@@ -1,3 +1,14 @@
+---
+title: Heap Sort Algorithm
+description: Heap Sort is an efficient comparison-based algorithm that guarantees O(n log n) time complexity while sorting in-place using the heap data structure.
+sidebar_label: Heap Sort
+sidebar_position: 6
+keywords: [heap-sort, sorting, algorithms, heap, data-structures]
+reading_time: 15
+last_update:
+  date: 2026-01-02
+---
+
 # Heap Sort Algorithm
 
 Heap Sort is an efficient comparison-based sorting algorithm that combines the best features of merge sort and selection sort. It guarantees O(n log n) time complexity in all cases while sorting in-place, making it particularly valuable for systems with memory constraints and real-time requirements.

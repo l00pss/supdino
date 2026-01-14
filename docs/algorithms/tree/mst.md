@@ -1,4 +1,15 @@
 
+---
+title: Minimum Spanning Tree
+description: The Minimum Spanning Tree (MST) is a classic graph problem for finding the most economical way to connect points. Covers Prim's and Kruskal's algorithms.
+sidebar_label: Minimum Spanning Tree
+sidebar_position: 1
+keywords: [mst, minimum-spanning-tree, prims, kruskals, graph-algorithms]
+reading_time: 20
+last_update:
+  date: 2026-01-05
+---
+
 # Unveiling the Minimum Spanning Tree: A Journey Through Connectivity
 
 ## Abstract

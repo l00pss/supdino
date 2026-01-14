@@ -1,3 +1,13 @@
+---
+title: Introduction to Distributed Systems
+description: Explore the theoretical foundations and practical implementations of systems spanning multiple computational nodes for scalability and fault tolerance.
+sidebar_label: Introduction
+sidebar_position: 1
+keywords: [distributed-systems, scalability, fault-tolerance, replication]
+last_update:
+  date: 2025-11-15
+---
+
 # Introduction to Distributed Systems
 
 Welcome to the comprehensive study of distributed systems. This section explores the theoretical foundations and practical implementations of systems that span multiple computational nodes, examining how independent computers collaborate to solve complex problems and deliver reliable services at scale.

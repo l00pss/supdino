@@ -1,3 +1,14 @@
+---
+title: Low Water Mark
+description: The Low Water Mark (LWM) is a fundamental concept in distributed systems for tracking minimum progress across nodes, ensuring consistency and resource management.
+sidebar_label: Low Water Mark
+sidebar_position: 3
+keywords: [low-water-mark, distributed-systems, consistency, replication]
+reading_time: 15
+last_update:
+  date: 2026-01-08
+---
+
 # Low Water Mark in Distributed Systems: A Comprehensive Analysis
 
 ## Abstract
