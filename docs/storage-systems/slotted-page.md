@@ -105,8 +105,8 @@ The page header occupies the first 32 bytes and contains metadata essential for 
 │    4       1      PageType        Page type enumeration (uint8)             │
 │    5       1      Flags           Reserved for future use (uint8)           │
 │    6       2      SlotCount       Number of slots in directory (uint16)     │
-│    8       2      FreeSpacePtr    Offset where free space ends (uint16)     │
-│   10       2      FreeSpace       Available free space in bytes (uint16)    │
+│    8       2      FreeSpacePtr    Offset to start of record data (uint16)   ���
+│   10       2      FragmentedSpace Reclaimable space from deletions (uint16) │
 │   12       8      LSN             Log Sequence Number for WAL (uint64)      │
 │   20       4      Checksum        Data integrity checksum (uint32)          │
 │   24       4      NextPageID      Next page in chain (uint32)               │
@@ -122,7 +122,7 @@ The page header occupies the first 32 bytes and contains metadata essential for 
 ```
 Byte:   0   1   2   3   4   5   6   7   8   9  10  11  12  ...  20  ...  24  ...  28  ... 32
         ├───────────┼───┼───┼───────┼───────┼───────┼───────────┼───────┼───────┼───────┤
-        │  PageID   │ T │ F │SlotCnt│FreePtr│FreeSpc│    LSN    │Chksum │NextPg │PrevPg │
+        │  PageID   │ T │ F │SlotCnt│FreePtr│FragSpc│    LSN    │Chksum │NextPg │PrevPg │
         │  (4B)     │(1)│(1)│ (2B)  │ (2B)  │ (2B)  │   (8B)    │ (4B)  │ (4B)  │ (4B)  │
         └───────────┴───┴───┴───────┴───────┴───────┴───────────┴───────┴───────┴───────┘
                       │   │
@@ -142,12 +142,24 @@ Points to the end of free space (equivalently, the beginning of record data). Ne
 FreeSpacePtr = PageSize - Σ(RecordLength_i)
 ```
 
-#### FreeSpace
-The total available space for new records and slots:
+#### FragmentedSpace
+Tracks the amount of space that can be reclaimed through compaction. This represents "holes" left by deleted records that are not contiguous with the main free space area. Initially 0, this value increases when records are deleted.
 
+:::info Contiguous vs Logical Free Space
+**Contiguous Free Space** is calculated dynamically:
 ```
-FreeSpace = FreeSpacePtr - HeaderSize - (SlotCount × SlotSize)
+ContiguousFreeSpace = FreeSpacePtr - (HeaderSize + SlotCount × SlotSize)
 ```
+
+This is the actual usable space for new record insertion without compaction.
+
+**Total Logical Free Space** includes fragmented space:
+```
+TotalFreeSpace = ContiguousFreeSpace + FragmentedSpace
+```
+
+When `ContiguousFreeSpace` is insufficient but `TotalFreeSpace` would suffice, compaction can reclaim the fragmented space.
+:::
 
 ---
 
@@ -251,7 +263,7 @@ Records are stored at the end of the page, growing toward lower addresses:
 │                                                                             │
 │   Page (4096 bytes):                                                        │
 │                                                                             │
-│   Byte: 0      32                           4060    4080       4096         │
+│   Byte: 0      32   36                        4070         4096             │
 │         │      │                            │       │          │            │
 │         ▼      ▼                            ▼       ▼          ▼            │
 │         ┌──────┬──────────┬─────────────────┬───────┬──────────┐           │
@@ -305,26 +317,31 @@ Records are stored at the end of the page, growing toward lower addresses:
 
 ### 6.1 Free Space Calculation
 
-The available free space is tracked in real-time:
+There are two types of free space to consider:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                      FREE SPACE CALCULATION                                  │
-├─────────────────────────────────────────────────────────────────────────────┤
+├──────────���──────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │   ┌─────────────────────────────────────────────────────────────────────┐   │
+│   │  CONTIGUOUS FREE SPACE (usable for immediate insertion):            │   │
+│   │                                                                     ��   │
+│   │  ContiguousFree = FreeSpacePtr - (HeaderSize + SlotCount × SlotSize)│   │
 │   │                                                                     │   │
-│   │  FreeSpace = FreeSpacePtr - (HeaderSize + SlotCount × SlotSize)    │   │
+│   │  TOTAL LOGICAL FREE SPACE (includes reclaimable fragmented space):  │   │
 │   │                                                                     │   │
-│   │  Example:                                                           │   │
+│   │  TotalFree = ContiguousFree + FragmentedSpace                       │   │
+│   │                                                                     │   │
+│   │  Example (no deletions):                                            │   │
 │   │  • FreeSpacePtr = 4040                                             │   │
 │   │  • HeaderSize = 32                                                  │   │
 │   │  • SlotCount = 4                                                    │   │
 │   │  • SlotSize = 4                                                     │   │
+│   │  • FragmentedSpace = 0                                              │   │
 │   │                                                                     │   │
-│   │  FreeSpace = 4040 - (32 + 4×4)                                     │   │
-│   │            = 4040 - 48                                              │   │
-│   │            = 3992 bytes                                             │   │
+│   │  ContiguousFree = 4040 - (32 + 4×4) = 4040 - 48 = 3992 bytes       │   │
+│   │  TotalFree = 3992 + 0 = 3992 bytes                                  │   │
 │   │                                                                     │   │
 │   └─────────────────────────────────────────────────────────────────────┘   │
 │                                                                             │
@@ -334,21 +351,22 @@ The available free space is tracked in real-time:
 │   │          │     │                        │                       │       │
 │   ▼          ▼     ▼                        ▼                       ▼       │
 │   ┌──────────┬─────┬────────────────────────┬───────────────────────┐      │
-│   │  HEADER  │SLOTS│      FREE SPACE        │      RECORDS          │      │
+│   │  HEADER  │SLOTS│   CONTIGUOUS FREE      │      RECORDS          │      │
 │   │   32B    │ 16B │       3992B            │        56B            │      │
 │   └──────────┴─────┴────────────────────────┴───────────────────────┘      │
 │                    │◄────────────────────────│                              │
-│                          FreeSpace                                          │
+│                       Contiguous Free Space                                 │
+│                       (immediately usable)                                  │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### 6.2 Page Full Detection
 
-A page is considered full when:
+A page is considered full when the **contiguous** free space is insufficient:
 
 ```
-RequiredSpace > FreeSpace
+RequiredSpace > ContiguousFreeSpace
 ```
 
 Where:
@@ -366,13 +384,18 @@ RequiredSpace = RecordLength + SlotSize
 │                                                                             │
 │   RequiredSpace = 100 (record) + 4 (new slot) = 104 bytes                   │
 │                                                                             │
-│   Case 1: FreeSpace = 200 bytes                                             │
+│   Case 1: ContiguousFree = 200 bytes                                        │
 │           104 ≤ 200  ✓  Insert succeeds                                     │
 │                                                                             │
-│   Case 2: FreeSpace = 50 bytes                                              │
-│           104 > 50   ✗  ErrPageFull returned                                │
+│   Case 2: ContiguousFree = 50 bytes, FragmentedSpace = 100 bytes            │
+│           104 > 50   ✗  Contiguous space insufficient                       │
+│           BUT: TotalFree = 150 bytes (enough after compaction!)             │
+│           → Trigger compaction, then retry insert                           │
 │                                                                             │
-│   Critical insight: We need space for BOTH the record AND its slot!        │
+│   Case 3: ContiguousFree = 50 bytes, FragmentedSpace = 30 bytes             │
+│           104 > 80   ✗  ErrPageFull returned (even compaction won't help)   │
+│                                                                             │
+│   Critical insight: Check contiguous space first, then consider compaction! │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -412,7 +435,8 @@ RequiredSpace = RecordLength + SlotSize
 │   │  6. Update header                                                   │   │
 │   │     SlotCount++                                                     │   │
 │   │     FreeSpacePtr = newOffset                                        │   │
-│   │     FreeSpace -= requiredSpace                                      │   │
+│   │     // Note: ContiguousFreeSpace is derived from FreeSpacePtr,      │   │
+│   │     // so no separate update needed                                 │   │
 │   │                                                                     │   │
 │   │  7. Mark page dirty                                                 │   │
 │   │     dirty = true                                                    │   │
@@ -510,9 +534,10 @@ AFTER Insert("Hello World"):
 │   │  2. Mark slot as tombstone                                          │   │
 │   │     setSlot(slotID, 0, 0)                                           │   │
 │   │                                                                     │   │
-│   │  3. Update free space counter                                       │   │
-│   │     FreeSpace += length                                             │   │
-│   │     (Note: This counts logical free space, not contiguous)          │   │
+│   │  3. Update fragmented space counter                                 │   │
+│   │     FragmentedSpace += length                                       │   │
+│   │     // Note: This space is NOT contiguous - it's a hole             │   │
+│   │     // that can only be reclaimed through compaction                │   │
 │   │                                                                     │   │
 │   │  4. Mark page dirty                                                 │   │
 │   │     dirty = true                                                    │   │
@@ -703,10 +728,25 @@ The slot acts as an **indirection layer**, providing stability:
 │   │                                                                     │   │
 │   │  4. Recalculate free space                                          │   │
 │   │     slotArrayEnd = HeaderSize + SlotCount × SlotSize                │   │
-│   │     FreeSpace = FreeSpacePtr - slotArrayEnd                         │   │
+│   │     FragmentedSpace = 0  // All holes eliminated                    │   │
+│   │     // ContiguousFreeSpace = FreeSpacePtr - slotArrayEnd            │   │
 │   │                                                                     │   │
 │   │  5. Mark page dirty                                                 │   │
 │   │     dirty = true                                                    │   │
+│   └─────────────────────────────────────────────────────────────────────┘   │
+│                                                                             │
+│   ┌───────���─────────────────────────────────────────────────────────────┐   │
+│   │  DESIGN DECISION: Tombstone Preservation                            │   │
+│   │                                                                     │   │
+│   │  This algorithm preserves tombstone slots (deleted records).        │   │
+│   │  Why? To maintain stable SlotIDs:                                   │   │
+│   │                                                                     │   │
+│   │  • If we removed tombstones, remaining slots would shift            │   │
+│   │  • SlotIDs would change, breaking all external RID references       │   │
+│   │  • Indexes, foreign keys, etc. would become invalid                 │   │
+│   │                                                                     │   │
+│   │  Trade-off: Slot array grows monotonically (never shrinks)          │   │
+│   │  Alternative: Page reorganization with RID remapping (more complex) │   │
 │   └─────────────────────────────────────────────────────────────────────┘   │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
@@ -854,6 +894,7 @@ The slotted page architecture provides an elegant solution to the variable-lengt
 | Stable RIDs | Fragmentation accumulates |
 | Simple implementation | Compaction requires page lock |
 | In-page record movement | Max record size limited to page size |
+| Tombstone preservation keeps RIDs stable | Slot array grows monotonically |
 
 ### 11.3 References
 
