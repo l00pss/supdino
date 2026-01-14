@@ -68,6 +68,14 @@ const config: Config = {
     {
       tagName: 'meta',
       attributes: {
+        name: 'image',
+        property: 'og:image',
+        content: 'https://supdino.com/img/social-card.png',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
         property: 'og:type',
         content: 'website',
       },
