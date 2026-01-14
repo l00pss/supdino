@@ -79,6 +79,17 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+
+      // Storage Systems section
+    {
+      type: 'category',
+      label: 'Storage Systems',
+      collapsed: true,
+      items: [
+        'storage-systems/intro',
+        'storage-systems/slotted-page',
+      ],
+    },
   ],
 };
 
