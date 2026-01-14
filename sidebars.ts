@@ -20,18 +20,18 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'algorithms/intro',
-        {
-          type: 'category',
-          label: 'Sorting Algorithms',
-          items: [
-            'algorithms/sorting/bubble-sort',
-            'algorithms/sorting/selection-sort',
-            'algorithms/sorting/insertion-sort',
-            'algorithms/sorting/merge-sort',
-            'algorithms/sorting/quick-sort',
-            'algorithms/sorting/heap-sort',
-          ],
-        },
+        // {
+        //   type: 'category',
+        //   label: 'Sorting Algorithms',
+        //   items: [
+        //     'algorithms/sorting/bubble-sort',
+        //     'algorithms/sorting/selection-sort',
+        //     'algorithms/sorting/insertion-sort',
+        //     'algorithms/sorting/merge-sort',
+        //     'algorithms/sorting/quick-sort',
+        //     'algorithms/sorting/heap-sort',
+        //   ],
+        // },
         {
           type: 'category',
           label: 'Tree Algorithms',
@@ -88,6 +88,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'storage-systems/intro',
         'storage-systems/slotted-page',
+        'storage-systems/byte-ordering-endianness',
       ],
     },
   ],

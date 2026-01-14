@@ -4,7 +4,6 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import Heading from '@theme/Heading';
-import BuyMeCoffeeButton from '@site/src/components/BuyMeCoffeeButton';
 import {useLatestDocs, formatReadingTime} from '@site/src/hooks/useLatestDocs';
 
 import styles from './index.module.css';
@@ -41,6 +40,15 @@ function HomepageHeader() {
                 to="/blog">
                 Read Blog
               </Link>
+            </div>
+            <div className={styles.communityLink}>
+              <a
+                href="https://github.com/l00pss/supdino"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                🌟 Join our Community on GitHub
+              </a>
             </div>
           </div>
           <div className={styles.heroVisual}>
@@ -165,7 +173,6 @@ function LatestArticlesSection() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
       title="SupDino - Computer Science Mastery"
@@ -173,13 +180,6 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <LatestArticlesSection />
-        <section style={{ padding: '4rem 0', textAlign: 'center', backgroundColor: 'var(--ifm-background-color)' }}>
-          <div className="container">
-            <h2>Support SupDino</h2>
-            <p>Help us create more quality content and maintain this educational resource!</p>
-            <BuyMeCoffeeButton username="l00pss" message="Buy me a coffee" />
-          </div>
-        </section>
       </main>
     </Layout>
   );

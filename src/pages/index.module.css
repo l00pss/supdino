@@ -74,6 +74,38 @@
   flex-wrap: wrap;
 }
 
+/* Secondary outline button should be white on hero dark background */
+.heroButtons :global(.button--secondary.button--outline) {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.heroButtons :global(.button--secondary.button--outline:hover) {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Community Link */
+.communityLink {
+  margin-top: 1.5rem;
+}
+
+.communityLink a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.communityLink a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .heroVisual {
   position: relative;
 }

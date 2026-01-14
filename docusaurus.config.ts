@@ -84,7 +84,12 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'mainSidebar',
           position: 'left',
-          label: 'Docs',
+          label: 'Articles',
+        },
+        {
+          to: '/blog',
+          label: 'Blog',
+          position: 'left',
         },
         {
           type: 'search',
@@ -94,6 +99,11 @@ const config: Config = {
           href: 'https://github.com/l00pss/supdino',
           label: 'GitHub',
           position: 'right',
+        },
+        {
+          type: 'html',
+          position: 'right',
+          value: '<a href="https://www.buymeacoffee.com/l00pss" target="_blank" rel="noopener noreferrer" class="navbar-buymeacoffee">☕ Buy me a coffee</a>',
         },
       ],
     },

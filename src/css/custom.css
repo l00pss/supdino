@@ -483,8 +483,6 @@
   z-index: 1000 !important;
 }
 
-/* ...existing code... */
-
 /* Specific positioning for docs layout */
 @media (min-width: 997px) {
   /* When sidebar is visible, position in upper right */
@@ -522,5 +520,53 @@
 @media (min-width: 997px) {
   .theme-doc-sidebar-container + .main-wrapper {
     margin-right: 0;
+  }
+}
+
+/* Navbar Buy Me a Coffee Button */
+.navbar-buymeacoffee {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background-color: #FFDD00;
+  color: #000 !important;
+  text-decoration: none !important;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  margin-left: 12px;
+}
+
+.navbar-buymeacoffee:hover {
+  background-color: #ffea00;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(255, 221, 0, 0.4);
+  text-decoration: none !important;
+  color: #000 !important;
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .navbar-buymeacoffee {
+  background-color: #FFDD00;
+  color: #000 !important;
+}
+
+[data-theme='dark'] .navbar-buymeacoffee:hover {
+  background-color: #ffea00;
+  box-shadow: 0 3px 10px rgba(255, 221, 0, 0.3);
+}
+
+/* Responsive: hide text on mobile, show only emoji */
+@media screen and (max-width: 768px) {
+  .navbar-buymeacoffee {
+    padding: 6px 10px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-buymeacoffee {
+    padding: 5px 8px;
   }
 }

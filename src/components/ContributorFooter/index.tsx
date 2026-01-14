@@ -30,26 +30,6 @@ const ContributorFooter: React.FC = () => {
       marginTop: '2rem'
     }}>
       <div className="container">
-        <div style={{
-          textAlign: 'center',
-          marginBottom: '2rem'
-        }}>
-          <h3 style={{
-            fontSize: '1.5rem',
-            fontWeight: '600',
-            color: 'var(--ifm-color-emphasis-800)',
-            marginBottom: '0.5rem'
-          }}>
-            Built with ❤️ by
-          </h3>
-          <p style={{
-            color: 'var(--ifm-color-emphasis-600)',
-            fontSize: '1rem',
-            margin: 0
-          }}>
-            Passionate developers creating quality educational content
-          </p>
-        </div>
 
         <div style={{
           display: 'flex',
@@ -213,35 +193,6 @@ const ContributorFooter: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div style={{
-          textAlign: 'center',
-          marginTop: '2rem',
-          padding: '1.5rem',
-          backgroundColor: 'var(--ifm-color-emphasis-100)',
-          borderRadius: '8px',
-          border: '1px solid var(--ifm-color-emphasis-200)'
-        }}>
-          <p style={{
-            color: 'var(--ifm-color-emphasis-700)',
-            fontSize: '0.9rem',
-            margin: '0 0 0.5rem 0'
-          }}>
-            Want to contribute to SupDino?
-          </p>
-          <a
-            href="https://github.com/l00pss/supdino"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: 'var(--ifm-color-primary)',
-              textDecoration: 'none',
-              fontWeight: '600'
-            }}
-          >
-            Join our community on GitHub →
-          </a>
         </div>
       </div>
     </section>
