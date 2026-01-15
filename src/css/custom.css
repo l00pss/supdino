@@ -290,15 +290,25 @@
 
 /* Dark theme adjustments for search */
 [data-theme='dark'] .aa-DetachedSearchButton {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: var(--ifm-color-emphasis-600) !important;
+  background: rgba(255, 255, 255, 0.18) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .aa-DetachedSearchButton svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  opacity: 1 !important;
+}
+
+[data-theme='dark'] .aa-DetachedSearchButtonPlaceholder {
+  color: rgba(255, 255, 255, 0.8) !important;
 }
 
 [data-theme='dark'] .aa-DetachedSearchButton:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.25) !important;
   border-color: var(--ifm-color-primary-lighter) !important;
-  color: var(--ifm-color-emphasis-700) !important;
+  color: #ffffff !important;
 }
 
 /* Light theme adjustments for search */
@@ -570,3 +580,60 @@
     padding: 5px 8px;
   }
 }
+
+/* ========================================
+   Search Input Styling - Dark Mode Fix
+   ======================================== */
+
+/* Local Search Plugin - Input Field */
+[data-theme='dark'] .navbar__search-input,
+[data-theme='dark'] .searchInput_YFbd,
+[data-theme='dark'] input.navbar__search-input {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+[data-theme='dark'] .navbar__search-input::placeholder,
+[data-theme='dark'] .searchInput_YFbd::placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+[data-theme='dark'] .navbar__search-input:focus,
+[data-theme='dark'] .searchInput_YFbd:focus {
+  background-color: rgba(255, 255, 255, 0.25) !important;
+  border-color: var(--ifm-color-primary-light) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3) !important;
+}
+
+/* Search Icon - Make it WHITE in dark mode */
+[data-theme='dark'] .navbar__search svg,
+[data-theme='dark'] .navbar__search-input + svg,
+[data-theme='dark'] .searchBarContainer_NW3z svg,
+[data-theme='dark'] .navbar__search .search-icon,
+[data-theme='dark'] [class*="searchBar"] svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* Search Container */
+[data-theme='dark'] .navbarSearchContainer_Bca1,
+[data-theme='dark'] .navbar__search {
+  background-color: transparent !important;
+}
+
+/* Search Dropdown/Results */
+[data-theme='dark'] .searchResultsContainer,
+[data-theme='dark'] .searchResultItem {
+  background-color: #1e293b !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+[data-theme='dark'] .searchResultItem:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+

@@ -115,8 +115,8 @@ const config: Config = {
       {property: 'og:locale', content: 'en_US'},
     ],
     colorMode: {
-      respectPrefersColorScheme: true,
-      defaultMode: 'light',
+      respectPrefersColorScheme: false,
+      defaultMode: 'dark',
     },
     navbar: {
       title: 'SupDino',
