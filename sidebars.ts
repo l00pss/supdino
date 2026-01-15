@@ -87,8 +87,9 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       items: [
         'storage-systems/intro',
-        'storage-systems/slotted-page',
         'storage-systems/byte-ordering-endianness',
+        'storage-systems/slotted-page',
+        'storage-systems/buffer-pool',
       ],
     },
   ],
