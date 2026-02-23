@@ -195,7 +195,7 @@ Don't worry if notation is unfamiliar—we explain everything as we go!
 
 ### **Choose Your Path**
 
-1. **New to Mathematics**: Start with [Linear Algebra - Vectors](./linear-algebra/vectors)
+1. **New to Mathematics**: Start with [Linear Algebra - Linear Equation Systems](./linear-algebra/linear-equation-systems)
 2. **Experienced**: Jump to any section that interests you
 3. **Practical Focus**: Look for "Applications" sections in each topic
 4. **Theory Focus**: Dive deep into proofs and mathematical rigor

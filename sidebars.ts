@@ -53,8 +53,9 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Linear Algebra',
           items: [
-            'mathematics/linear-algebra/vectors',
-            // More linear algebra topics will be added here
+            'mathematics/linear-algebra/linear-equation-systems',
+            'mathematics/linear-algebra/gaussian-elimination',
+            'mathematics/linear-algebra/gauss-jordan-elimination',
           ],
         },
         // More categories will be added as content is created

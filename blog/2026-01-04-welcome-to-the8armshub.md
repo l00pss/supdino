@@ -115,7 +115,7 @@ We chose Go as our implementation language because it excels across all our doma
 
 ### **Mathematics Track**
 1. Begin with [Mathematics Overview](../docs/mathematics/intro)
-2. Explore [Linear Algebra - Vectors](../docs/mathematics/linear-algebra/vectors)
+2. Explore [Linear Algebra - Linear Equation Systems](../docs/mathematics/linear-algebra/linear-equation-systems)
 3. Build mathematical intuition with visualizations
 4. Apply concepts to computational problems
 
